@@ -37,16 +37,16 @@ import java.util.Map;
 
 public class evaluateActivity extends Activity {
 
-    RatingBar rating;
-    TextView tv01;
+    RatingBar rating; //별점 등록할때 쓰는 View
+    TextView tv01;// RatingBar에 있는 별점을 클릭했을때 그 숫자값을 TextView에 나타냄.
+
     float ratevalue;//매긴 별점 값
 
-    private EditText m_EditText_comment;
+    private EditText m_EditText_comment;//댓글을 쓸때 사용하는 EditText
 
-    private String jsonResult;
-    private String url;
-
-    private ListView listView;
+    private String url; //웹서버 통신을 위해서 사용하는 url
+    private String jsonResult; //댓글을 웹 서버에 저장하고, 웹서버에를 통해 댓글을 받아온다
+    private ListView listView;//리스트뷰를 통해 댓글을 뿌려준다.
 
     Intent i;
     String lecture;
@@ -58,7 +58,7 @@ public class evaluateActivity extends Activity {
         setContentView(R.layout.evaluate);
 
         listView = (ListView) findViewById(R.id.list);
-        i = getIntent();
+        i = getIntent(); // 해당교수 강의이름을 받아옴.
         lecture = i.getExtras().getString("professorlecture");
 
         if( lecture.compareTo("cyg_cplusplus") == 0){
@@ -109,7 +109,6 @@ public class evaluateActivity extends Activity {
             url = "http://jhy753.dothome.co.kr/jsonfetch15.php";
         }
 
-
         accessWebService();
 
         rating = (RatingBar) findViewById(R.id.ratingbar1);
@@ -138,18 +137,23 @@ public class evaluateActivity extends Activity {
         //getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
-
     // Async Task to access the web
+
+    //웹서버에 접근해서 데이터들을 json으로 읽어오는 스레드~
     private class JsonReadTask extends AsyncTask<String, Void, String> {
+
         @Override
         protected String doInBackground(String... params) {
-            HttpClient httpclient = new DefaultHttpClient();
-            HttpPost httppost = new HttpPost(params[0]);
-            try {
-                HttpResponse response = httpclient.execute(httppost);
-                InputStream inputStream = response.getEntity().getContent();
 
-                jsonResult = inputStreamToString(inputStream).toString();
+            HttpClient httpclient = new DefaultHttpClient();
+            HttpPost httppost = new HttpPost(params[0]); //(params[0]에는 url 값이 들어있습! Post로 서버에 연결.
+
+            try {
+
+                HttpResponse response = httpclient.execute(httppost);//서버로 연결하고 그 결과 값을.
+                InputStream inputStream = response.getEntity().getContent();//서버에서 주는 결과를 받아올수 있는 inputStream 객체 생성.
+                jsonResult = inputStreamToString(inputStream).toString();//스트림을 매개변수 값으로 넣고 원래 json은 문자열이기때문에 문자열로 바꿔서 온다.
+
             } catch (ClientProtocolException e) {
                 e.printStackTrace();
             } catch (IOException e) {
@@ -157,24 +161,27 @@ public class evaluateActivity extends Activity {
             }
             return null;
         }
-
         private StringBuilder inputStreamToString(InputStream is) {
+
             String rLine = "";
             StringBuilder answer = new StringBuilder();
-            BufferedReader rd = new BufferedReader(new InputStreamReader(is));
+            BufferedReader rd = new BufferedReader( new InputStreamReader(is) );//해당 스트림으로부터 읽어 와서 버퍼에 저장한다~
+
 
             try {
-                while ((rLine = rd.readLine()) != null) {
+                while ( (rLine = rd.readLine()) != null ) {
                     answer.append(rLine);
+
+                    Log.d("line",rLine );
+                    Log.d("number","1");
                 }
             } catch (IOException e) {
-// e.printStackTrace();
                 Toast.makeText(getApplicationContext(),
                         "Error..." + e.toString(), Toast.LENGTH_LONG).show();
             }
+            Log.d("answer",answer.toString() );
             return answer;
         }
-
         @Override
         protected void onPostExecute(String result) {
             ListDrwaer();
@@ -183,45 +190,49 @@ public class evaluateActivity extends Activity {
 
     public void accessWebService() {
         JsonReadTask task = new JsonReadTask();
-// passes values for the urls string array
+        // passes values for the urls string array
         task.execute(new String[]{url});
     }
-
     // build hash set for list view
+
+    //댓글을 jSon으로 받아와서 뿌려준다.
     public void ListDrwaer() {
-        List<Map<String, String>> employeeList = new ArrayList<Map<String, String>>();
+
+        List< Map<String, String> > employeeList = new ArrayList< Map<String, String> >();
 
         try {
+
             JSONObject jsonResponse = new JSONObject(jsonResult);
             JSONArray jsonMainNode = jsonResponse.optJSONArray("commentData");
 
             for (int i = 0; i < jsonMainNode.length(); i++) {
+
                 JSONObject jsonChildNode = jsonMainNode.getJSONObject(i);
-                String number = jsonChildNode.optString("comment");
-                employeeList.add(createEmployee("employees", number));
+                String commentText = jsonChildNode.optString("comment");
+                employeeList.add( createComment("name", commentText) );
+
             }
         } catch (JSONException e) {
             Toast.makeText(getApplicationContext(), "Error" + e.toString(),
                     Toast.LENGTH_SHORT).show();
         }
-
         SimpleAdapter simpleAdapter = new SimpleAdapter(this, employeeList,
                 android.R.layout.simple_list_item_1,
-                new String[]{"employees"}, new int[]{android.R.id.text1});
+                new String[]{"name"}, new int[]{android.R.id.text1});
         listView.setAdapter(simpleAdapter);
+    }
+
+    private HashMap<String, String> createComment(String name, String commentText) {
+
+        HashMap<String, String> comment= new HashMap<String, String>();
+        comment.put(name, commentText);
+        return comment;
 
     }
 
-    private HashMap<String, String> createEmployee(String name, String number) {
-        HashMap<String, String> employeeNameNo = new HashMap<String, String>();
-        employeeNameNo.put(name, number);
-        return employeeNameNo;
-    }
-
+    //댓글입력을 클릭했을때 웹서버로 데이터를 입력한다
     public void CommentonClick(View view) {
-
         String commentData = m_EditText_comment.getText().toString();
-
         if (view.getId() == R.id.add) {
 
             int version = android.os.Build.VERSION.SDK_INT;
@@ -229,12 +240,11 @@ public class evaluateActivity extends Activity {
             if (version > 8) {
                 StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitNetwork().build());
             }
-
             try {
 
                 URL url = new URL("http://jhy753.dothome.co.kr/dbconfig/dbconnect.php?comment=" + commentData + "&lecture=" + lecture);
-
                 //여기 주소를 바꿔주면 된다. 데이터를 추가하려면 변수를 추가 해서 이어붙이면 된다. &기호로 이어붙인다. ex) name=les&num=20130610&phone=1111
+
                 URLConnection conn = url.openConnection();
                 //url경로를 열어준다.
                 conn.getInputStream();
@@ -245,8 +255,10 @@ public class evaluateActivity extends Activity {
                 e.printStackTrace();
                 Log.i("msg", "no");
             }
-           Intent hi = new Intent( evaluateActivity.this ,    ViewActivity.class);
 
+            accessWebService();
+
+            /*
             if(lecture.compareTo("cyg_cplusplus") == 0 ){
                 hi.putExtra("NAME","cyg");
                 startActivity(hi);
@@ -296,26 +308,24 @@ public class evaluateActivity extends Activity {
                 hi.putExtra("NAME","uhg");
                 startActivity(hi);
             }
+            */
         }
     }
-    //별점 등록!
+
+    //별점을  등록!
     public void evaluate_Enrollment(View view) {
 
-
         //String commentData = m_EditText_comment.getText().toString();
-
-
         int version = android.os.Build.VERSION.SDK_INT;
         Log.d("sdk version:", version + "");
         if (version > 8) {
             StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitNetwork().build());
         }
-
        String rate = Float.toString(ratevalue);
 
         try {
-            URL url = new URL("http://jhy753.dothome.co.kr/avg.php?avg="+rate+"&lecture="+lecture);
 
+            URL url = new URL("http://jhy753.dothome.co.kr/avg.php?avg="+rate+"&lecture="+lecture);
             //여기 주소를 바꿔주면 된다. 데이터를 추가하려면 변수를 추가 해서 이어붙이면 된다. &기호로 이어붙인다. ex) name=les&num=20130610&phone=1111
             URLConnection conn = url.openConnection();
             //url경로를 열어준다.
@@ -327,6 +337,5 @@ public class evaluateActivity extends Activity {
             e.printStackTrace();
             Log.i("msg", "no");
         }
-
     }
 }

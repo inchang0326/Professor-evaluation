@@ -61,53 +61,8 @@ public class evaluateActivity extends Activity {
         i = getIntent(); // 해당교수 강의이름을 받아옴.
         lecture = i.getExtras().getString("professorlecture");
 
-        if( lecture.compareTo("cyg_cplusplus") == 0){
-            url = "http://jhy753.dothome.co.kr/jsonfetch01.php";
 
-        }else if(lecture.compareTo("cyg_datastructure") == 0 ){
-
-            url = "http://jhy753.dothome.co.kr/jsonfetch02.php";
-
-        }else if(lecture.compareTo("cyg_graphic") == 0 ){
-            url = "http://jhy753.dothome.co.kr/jsonfetch03.php";
-        }
-        else if(lecture.compareTo("jgc_computerEngineerBasic") == 0 ){
-            url = "http://jhy753.dothome.co.kr/jsonfetch04.php";
-        }
-        else if(lecture.compareTo("jgc_C") == 0 ){
-            url = "http://jhy753.dothome.co.kr/jsonfetch05.php";
-
-        }
-        else if(lecture.compareTo("jgs_microprocessor") == 0 ){
-            url = "http://jhy753.dothome.co.kr/jsonfetch06.php";
-        }
-        else if(lecture.compareTo("jgs_embedded") == 0 ){
-            url = "http://jhy753.dothome.co.kr/jsonfetch07.php";
-        }
-        else if(lecture.compareTo("kys_base_electric_electron") == 0 ){
-            url = "http://jhy753.dothome.co.kr/jsonfetch08.php";
-        }
-        else if(lecture.compareTo("kys_computer_architecture") == 0 ){
-            url = "http://jhy753.dothome.co.kr/jsonfetch09.php";
-        }
-        else if(lecture.compareTo("kys_animation") == 0 ){
-            url = "http://jhy753.dothome.co.kr/jsonfetch10.php";
-        }
-        else if(lecture.compareTo("ljh_C") == 0 ){
-            url = "http://jhy753.dothome.co.kr/jsonfetch11.php";
-        }
-        else if(lecture.compareTo("ljh_Cplusplus") == 0 ){
-            url = "http://jhy753.dothome.co.kr/jsonfetch12.php";
-        }
-        else if(lecture.compareTo("ljh_java") == 0 ){
-            url = "http://jhy753.dothome.co.kr/jsonfetch13.php";
-        }
-        else if(lecture.compareTo("uhg_trash") == 0 ){
-            url = "http://jhy753.dothome.co.kr/jsonfetch14.php";
-        }
-        else if(lecture.compareTo("uhg_ai") == 0 ){
-            url = "http://jhy753.dothome.co.kr/jsonfetch15.php";
-        }
+        url ="http://jhy753.dothome.co.kr/commentList.php?lecture="+lecture;
 
         accessWebService();
 
@@ -130,7 +85,6 @@ public class evaluateActivity extends Activity {
         m_EditText_comment = (EditText) findViewById(R.id.EditTextComment);
 
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -152,7 +106,11 @@ public class evaluateActivity extends Activity {
 
                 HttpResponse response = httpclient.execute(httppost);//서버로 연결하고 그 결과 값을.
                 InputStream inputStream = response.getEntity().getContent();//서버에서 주는 결과를 받아올수 있는 inputStream 객체 생성.
-                jsonResult = inputStreamToString(inputStream).toString();//스트림을 매개변수 값으로 넣고 원래 json은 문자열이기때문에 문자열로 바꿔서 온다.
+                String temp = inputStreamToString(inputStream).toString();//스트림을 매개변수 값으로 넣고 원래 json은 문자열이기때문에 문자열로 바꿔서 온다.
+
+                //wow 시발 성공했다!! ㅋㅋㅋ
+                jsonResult = temp.substring( temp.indexOf('{') );
+                System.out.println(jsonResult);
 
             } catch (ClientProtocolException e) {
                 e.printStackTrace();
@@ -169,9 +127,10 @@ public class evaluateActivity extends Activity {
 
 
             try {
-                while ( (rLine = rd.readLine()) != null ) {
-                    answer.append(rLine);
 
+                while ( (rLine = rd.readLine()) != null ) {
+
+                    answer.append(rLine);
                     Log.d("line",rLine );
                     Log.d("number","1");
                 }
@@ -198,7 +157,7 @@ public class evaluateActivity extends Activity {
     //댓글을 jSon으로 받아와서 뿌려준다.
     public void ListDrwaer() {
 
-        List< Map<String, String> > employeeList = new ArrayList< Map<String, String> >();
+        List< Map<String, String> > commentList = new ArrayList< Map<String, String> >();
 
         try {
 
@@ -209,23 +168,28 @@ public class evaluateActivity extends Activity {
 
                 JSONObject jsonChildNode = jsonMainNode.getJSONObject(i);
                 String commentText = jsonChildNode.optString("comment");
-                employeeList.add( createComment("name", commentText) );
+                String timeText = jsonChildNode.optString("time");
+
+                commentList.add( createComment("nameT","timeT", commentText,timeText ) );
+
 
             }
         } catch (JSONException e) {
             Toast.makeText(getApplicationContext(), "Error" + e.toString(),
                     Toast.LENGTH_SHORT).show();
         }
-        SimpleAdapter simpleAdapter = new SimpleAdapter(this, employeeList,
-                android.R.layout.simple_list_item_1,
-                new String[]{"name"}, new int[]{android.R.id.text1});
+        SimpleAdapter simpleAdapter = new SimpleAdapter(this, commentList,
+                android.R.layout.simple_list_item_2,
+                new String[]{"nameT","timeT"}, new int[]{android.R.id.text1,android.R.id.text2});
+
         listView.setAdapter(simpleAdapter);
     }
 
-    private HashMap<String, String> createComment(String name, String commentText) {
+    private HashMap<String, String> createComment(String nameT, String timeT, String commentText, String timeText) {
 
         HashMap<String, String> comment= new HashMap<String, String>();
-        comment.put(name, commentText);
+        comment.put(nameT, commentText);
+        comment.put(timeT, timeText);
         return comment;
 
     }
@@ -242,7 +206,7 @@ public class evaluateActivity extends Activity {
             }
             try {
 
-                URL url = new URL("http://jhy753.dothome.co.kr/dbconfig/dbconnect.php?comment=" + commentData + "&lecture=" + lecture);
+                URL url = new URL("http://jhy753.dothome.co.kr/dbconfig/insertComment.php?comment=" + commentData + "&lecture=" + lecture);
                 //여기 주소를 바꿔주면 된다. 데이터를 추가하려면 변수를 추가 해서 이어붙이면 된다. &기호로 이어붙인다. ex) name=les&num=20130610&phone=1111
 
                 URLConnection conn = url.openConnection();
@@ -258,57 +222,6 @@ public class evaluateActivity extends Activity {
 
             accessWebService();
 
-            /*
-            if(lecture.compareTo("cyg_cplusplus") == 0 ){
-                hi.putExtra("NAME","cyg");
-                startActivity(hi);
-
-            }else if(lecture.compareTo("cyg_datastructure") == 0 ){
-
-                hi.putExtra("NAME","cyg");
-                startActivity(hi);
-
-            }else if(lecture.compareTo("cyg_graphic") == 0 ){
-                hi.putExtra("NAME","cyg");
-                startActivity(hi);
-            }else if(lecture.compareTo("jgc_computerEngineerBasic") == 0 ){
-                hi.putExtra("NAME","jgc");
-                startActivity(hi);
-            }else if(lecture.compareTo("jgc_C") == 0 ){
-                hi.putExtra("NAME","jgc");
-                startActivity(hi);
-            }else if(lecture.compareTo("jgs_microprocessor") == 0 ){
-                hi.putExtra("NAME","jgs");
-                startActivity(hi);
-            }else if(lecture.compareTo("jgs_embedded") == 0 ){
-                hi.putExtra("NAME","jgs");
-                startActivity(hi);
-            }else if(lecture.compareTo("kys_base_electric_electron") == 0 ){
-                hi.putExtra("NAME","kys");
-                startActivity(hi);
-            }else if(lecture.compareTo("kys_computer_architecture") == 0 ){
-                hi.putExtra("NAME","kys");
-                startActivity(hi);
-            }else if(lecture.compareTo("kys_animation") == 0 ){
-                hi.putExtra("NAME","kys");
-                startActivity(hi);
-            }else if(lecture.compareTo("ljh_C") == 0 ){
-                hi.putExtra("NAME","ljh");
-                startActivity(hi);
-            }else if(lecture.compareTo("ljh_Cplusplus") == 0 ){
-                hi.putExtra("NAME","ljh");
-                startActivity(hi);
-            }else if(lecture.compareTo("ljh_java") == 0 ){
-                hi.putExtra("NAME","ljh");
-                startActivity(hi);
-            }else if(lecture.compareTo("uhg_trash") == 0 ){
-                hi.putExtra("NAME","uhg");
-                startActivity(hi);
-            }else if(lecture.compareTo("uhg_ai") == 0 ){
-                hi.putExtra("NAME","uhg");
-                startActivity(hi);
-            }
-            */
         }
     }
 
@@ -325,7 +238,7 @@ public class evaluateActivity extends Activity {
 
         try {
 
-            URL url = new URL("http://jhy753.dothome.co.kr/avg.php?avg="+rate+"&lecture="+lecture);
+            URL url = new URL("http://jhy753.dothome.co.kr/insertScoreValue.php?avg="+rate+"&lecture="+lecture);
             //여기 주소를 바꿔주면 된다. 데이터를 추가하려면 변수를 추가 해서 이어붙이면 된다. &기호로 이어붙인다. ex) name=les&num=20130610&phone=1111
             URLConnection conn = url.openConnection();
             //url경로를 열어준다.

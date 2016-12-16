@@ -39,6 +39,7 @@ public class ViewActivity extends AppCompatActivity {
     private String url1;
     private String url2;
     private String url3;
+    private String url;
 
     String jsonResult1; // json으로 결과값을 받기위해 필요함!.
     String jsonResult2;
@@ -57,85 +58,78 @@ public class ViewActivity extends AppCompatActivity {
         if (professorName.compareTo("cyg") == 0) {
 
             setContentView(R.layout.cyg); //최영규에 하당하는 레이아웃을 여준다.
-            url1 = "http://jhy753.dothome.co.kr/avgOutput01.php"; // c++
-            url2 = "http://jhy753.dothome.co.kr/avgOutput02.php"; // 자료구조
-            url3 = "http://jhy753.dothome.co.kr/avgOutput03.php"; // 그래픽
+
+            url = "http://jhy753.dothome.co.kr/avgCalculater.php?professorName="+"cyg" ;
+
 
            /* 최영규 과목에 해당하는 평균을 내주는 RatingBar -- 평점을 계산해서 RatingBar에 뿌려준다.*/
             Average1  = (RatingBar) findViewById(R.id.cyg_cplusplus_Average);
             Average2  = (RatingBar) findViewById(R.id.cyg_datastructure_Average);
             Average3  = (RatingBar) findViewById(R.id.cyg_graphic_Average);
 
-            accessWebService2();
+            accessWebServiceRating();
 
 
         } else if (professorName.compareTo("jgc") == 0) {
 
             setContentView(R.layout.jgc);
 
-            url1 = "http://jhy753.dothome.co.kr/avgOutput04.php";//컴퓨터개론
-            url2 = "http://jhy753.dothome.co.kr/avgOutput05.php";//c
+            url = "http://jhy753.dothome.co.kr/avgCalculater.php?professorName="+"jgc";
+            Average2  = (RatingBar) findViewById(R.id.jgc_computerEngineerBasic_Average);
+            Average1  = (RatingBar) findViewById(R.id.jgc_C_Average);
 
-            Average1  = (RatingBar) findViewById(R.id.jgc_computerEngineerBasic_Average);
-            Average2  = (RatingBar) findViewById(R.id.jgc_C_Average);
-
-            accessWebService1();
+            accessWebServiceRating();
 
 
         } else if (professorName.compareTo("jgs") == 0) {
 
             setContentView(R.layout.jgs);
+            url = "http://jhy753.dothome.co.kr/avgCalculater.php?professorName="+"jgs";
 
-            url1 = "http://jhy753.dothome.co.kr/avgOutput06.php";//마이크로프로세서
-            url2 = "http://jhy753.dothome.co.kr/avgOutput07.php";//임베디드
-
-            Average1  = (RatingBar) findViewById(R.id.jgs_microprocessor_Average);
-            Average2  = (RatingBar) findViewById(R.id.jgs_embedded_Average);
-            accessWebService1();
+            Average2  = (RatingBar) findViewById(R.id.jgs_microprocessor_Average);
+            Average1  = (RatingBar) findViewById(R.id.jgs_embedded_Average);
+            accessWebServiceRating();
 
         } else if (professorName.compareTo("kys") == 0) {
             setContentView(R.layout.kys);
 
-            url1 = "http://jhy753.dothome.co.kr/avgOutput08.php";//기초전기전자
-            url2 = "http://jhy753.dothome.co.kr/avgOutput09.php";//컴퓨터구조
-            url3 = "http://jhy753.dothome.co.kr/avgOutput10.php";// 애니메이션
+            url = "http://jhy753.dothome.co.kr/avgCalculater.php?professorName="+"kys";
 
-            Average1  = (RatingBar) findViewById(R.id.kys_base_electric_electron_Average);
-            Average2  = (RatingBar) findViewById(R.id.ys_computer_architecture_Average);
-            Average3  = (RatingBar) findViewById(R.id.kys_animation_Average);
+            Average2  = (RatingBar) findViewById(R.id.kys_base_electric_electron_Average);
+            Average3  = (RatingBar) findViewById(R.id.ys_computer_architecture_Average);
+            Average1  = (RatingBar) findViewById(R.id.kys_animation_Average);
 
-            accessWebService2();
+            accessWebServiceRating();
 
         } else if (professorName.compareTo("ljh") == 0) {
             setContentView(R.layout.ljh);
+            url = "http://jhy753.dothome.co.kr/avgCalculater.php?professorName="+"ljh";
 
-            url1 = "http://jhy753.dothome.co.kr/avgOutput11.php";//c언어
-            url2 = "http://jhy753.dothome.co.kr/avgOutput12.php";//c++
-            url3 = "http://jhy753.dothome.co.kr/avgOutput13.php";// java
 
             Average1  = (RatingBar) findViewById(R.id.ljh_C_Average);
             Average2  = (RatingBar) findViewById(R.id.ljh_Cplusplus_Average);
             Average3  = (RatingBar) findViewById(R.id.ljh_java_Average);
 
-            accessWebService2();
+            accessWebServiceRating();
 
         } else if (professorName.compareTo("uhg") == 0) {
 
             setContentView(R.layout.uhg);
-            url1 = "http://jhy753.dothome.co.kr/avgOutput14.php";//c언어
-            url2 = "http://jhy753.dothome.co.kr/avgOutput15.php";//c++
 
-            Average1  = (RatingBar) findViewById(R.id.uhg_ai_Average);
-            Average2  = (RatingBar) findViewById(R.id.uhg_trash_Average);
+            url = "http://jhy753.dothome.co.kr/avgCalculater.php?professorName="+"uhg";
 
-            accessWebService1();
+            Average2  = (RatingBar) findViewById(R.id.uhg_ai_Average);
+            Average1  = (RatingBar) findViewById(R.id.uhg_trash_Average);
 
+            accessWebServiceRating();
         }
 
     }
 
+
     //웹서버에 접근해서 데이터들을 json으로 읽어오는 스레드~
-    private class JsonReadTask2 extends AsyncTask<String, Void, String> {
+
+    private class JSonReadTaskRating extends AsyncTask<String, Void, String>{
 
         @Override
         protected String doInBackground(String... params) {
@@ -143,19 +137,12 @@ public class ViewActivity extends AppCompatActivity {
             HttpClient httpclient1 = new DefaultHttpClient();
             HttpPost httppost1 = new HttpPost(params[0]); //(params[0]에는 url 값이 들어있습! Post로 서버에 연결.
 
-            HttpClient httpclient2 = new DefaultHttpClient();
-            HttpPost httppost2 = new HttpPost(params[1]); //(params[0]에는 url 값이 들어있습! Post로 서버에 연결.
-
-
             try {
 
                 HttpResponse response1 = httpclient1.execute(httppost1);//서버로 연결하고 그 결과 값을.
                 InputStream inputStream1 = response1.getEntity().getContent();//서버에서 주는 결과를 받아올수 있는 inputStream 객체 생성.
                 jsonResult1 = inputStreamToString(inputStream1).toString();//스트림을 매개변수 값으로 넣고 원래 json은 문자열이기때문에 문자열로 바꿔서 온다.
 
-                HttpResponse response2 = httpclient2.execute(httppost2);//서버로 연결하고 그 결과 값을.
-                InputStream inputStream2 = response2.getEntity().getContent();//서버에서 주는 결과를 받아올수 있는 inputStream 객체 생성.
-                jsonResult2 = inputStreamToString(inputStream2).toString();//스트림을 매개변수 값으로 넣고 원래 json은 문자열이기때문에 문자열로 바꿔서 온다.
 
             } catch (ClientProtocolException e) {
                 e.printStackTrace();
@@ -169,7 +156,6 @@ public class ViewActivity extends AppCompatActivity {
             String rLine = "";
             StringBuilder answer = new StringBuilder();
             BufferedReader rd = new BufferedReader( new InputStreamReader(is) );//해당 스트림으로부터 읽어 와서 버퍼에 저장한다~
-
 
             try {
                 while ( (rLine = rd.readLine()) != null ) {
@@ -193,133 +179,19 @@ public class ViewActivity extends AppCompatActivity {
                 JSONObject jsonResponse1 = new JSONObject(jsonResult1);
                 JSONArray jsonMainNode1 = jsonResponse1.optJSONArray("avgData");
 
-                JSONObject jsonResponse2 = new JSONObject(jsonResult2);
-                JSONArray jsonMainNode2 = jsonResponse2.optJSONArray("avgData");
 
                 for (int i = 0; i < jsonMainNode1.length(); i++) {
 
                     JSONObject jsonChildNode1 = jsonMainNode1.getJSONObject(i);
-                    String subjectavg = jsonChildNode1.optString("average");
+                    String subjectavg = jsonChildNode1.optString("avg");
                     Log.d("avg",subjectavg);
 
-                    Average1.setRating( Float.parseFloat(subjectavg) );
-
-                }
-
-                for (int i = 0; i < jsonMainNode2.length(); i++) {
-
-                    JSONObject jsonChildNode2 = jsonMainNode2.getJSONObject(i);
-                    String subjectavg = jsonChildNode2.optString("average");
-                    Log.d("avg",subjectavg);
-
-                    Average2.setRating( Float.parseFloat(subjectavg) );
-                }
-
-            } catch (JSONException e) {
-                Toast.makeText(getApplicationContext(), "Error" + e.toString(),
-                        Toast.LENGTH_SHORT).show();
-            }
-
-        }
-    }// end async task
-
-    private class JsonReadTask3 extends AsyncTask<String, Void, String> {
-
-        @Override
-        protected String doInBackground(String... params) {
-
-            HttpClient httpclient1 = new DefaultHttpClient();
-            HttpPost httppost1 = new HttpPost(params[0]); //(params[0]에는 url 값이 들어있습! Post로 서버에 연결.
-
-            HttpClient httpclient2 = new DefaultHttpClient();
-            HttpPost httppost2 = new HttpPost(params[1]); //(params[0]에는 url 값이 들어있습! Post로 서버에 연결.
-
-            HttpClient httpclient3 = new DefaultHttpClient();
-            HttpPost httppost3 = new HttpPost(params[2]); //(params[0]에는 url 값이 들어있습! Post로 서버에 연결.
-
-            try {
-
-                HttpResponse response1 = httpclient1.execute(httppost1);//서버로 연결하고 그 결과 값을.
-                InputStream inputStream1 = response1.getEntity().getContent();//서버에서 주는 결과를 받아올수 있는 inputStream 객체 생성.
-                jsonResult1 = inputStreamToString(inputStream1).toString();//스트림을 매개변수 값으로 넣고 원래 json은 문자열이기때문에 문자열로 바꿔서 온다.
-
-                HttpResponse response2 = httpclient2.execute(httppost2);//서버로 연결하고 그 결과 값을.
-                InputStream inputStream2 = response2.getEntity().getContent();//서버에서 주는 결과를 받아올수 있는 inputStream 객체 생성.
-                jsonResult2 = inputStreamToString(inputStream2).toString();//스트림을 매개변수 값으로 넣고 원래 json은 문자열이기때문에 문자열로 바꿔서 온다.
-
-                HttpResponse response3 = httpclient3.execute(httppost3);//서버로 연결하고 그 결과 값을.
-                InputStream inputStream3 = response3.getEntity().getContent();//서버에서 주는 결과를 받아올수 있는 inputStream 객체 생성.
-                jsonResult3 = inputStreamToString(inputStream3).toString();//스트림을 매개변수 값으로 넣고 원래 json은 문자열이기때문에 문자열로 바꿔서 온다.
-
-            } catch (ClientProtocolException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
-        private StringBuilder inputStreamToString(InputStream is) {
-
-            String rLine = "";
-            StringBuilder answer = new StringBuilder();
-            BufferedReader rd = new BufferedReader( new InputStreamReader(is) );//해당 스트림으로부터 읽어 와서 버퍼에 저장한다~
-
-
-            try {
-                while ( (rLine = rd.readLine()) != null ) {
-                    answer.append(rLine);
-                    Log.d("line",rLine );
-                    Log.d("number","1");
-                }
-            } catch (IOException e) {
-                Toast.makeText(getApplicationContext(),
-                        "Error..." + e.toString(), Toast.LENGTH_LONG).show();
-            }
-            Log.d("answer",answer.toString() );
-
-            return answer;
-        }
-        @Override
-        protected void onPostExecute(String result) {
-
-            try {
-
-                JSONObject jsonResponse1 = new JSONObject(jsonResult1);
-                JSONArray jsonMainNode1 = jsonResponse1.optJSONArray("avgData");
-
-                JSONObject jsonResponse2 = new JSONObject(jsonResult2);
-                JSONArray jsonMainNode2 = jsonResponse2.optJSONArray("avgData");
-
-                JSONObject jsonResponse3 = new JSONObject(jsonResult3);
-                JSONArray jsonMainNode3 = jsonResponse3.optJSONArray("avgData");
-
-                for (int i = 0; i < jsonMainNode1.length(); i++) {
-
-                    JSONObject jsonChildNode = jsonMainNode1.getJSONObject(i);
-                    String subjectavg = jsonChildNode.optString("average");
-                    Log.d("avg",subjectavg);
-
-                    Average1.setRating( Float.parseFloat(subjectavg) );
-
-                }
-
-                for (int i = 0; i < jsonMainNode2.length(); i++) {
-
-                    JSONObject jsonChildNode = jsonMainNode2.getJSONObject(i);
-                    String subjectavg = jsonChildNode.optString("average");
-                    Log.d("avg",subjectavg);
-
-                    Average2.setRating( Float.parseFloat(subjectavg) );
-
-                }
-
-                for (int i = 0; i < jsonMainNode3.length(); i++) {
-
-                    JSONObject jsonChildNode = jsonMainNode3.getJSONObject(i);
-                    String subjectavg = jsonChildNode.optString("average");
-                    Log.d("avg",subjectavg);
-
-                    Average3.setRating( Float.parseFloat(subjectavg) );
+                    if( i == 0 )
+                        Average1.setRating( Float.parseFloat(subjectavg) );
+                    else if ( i == 1 )
+                        Average2.setRating( Float.parseFloat(subjectavg) );
+                    else
+                        Average3.setRating( Float.parseFloat(subjectavg) );
 
                 }
 
@@ -329,23 +201,17 @@ public class ViewActivity extends AppCompatActivity {
             }
 
         }
-    }// end async task
+    }
+
 
     /* url이 2개일때 3개일때 스레드가 다르다. */
-    public void accessWebService1() {
 
-        JsonReadTask2 task2 = new JsonReadTask2();
-        // passes values for the urls string array
-        task2.execute(new String[]{ url1,url2 });
+    public void accessWebServiceRating(){
+
+        JSonReadTaskRating task =new JSonReadTaskRating();
+
+        task.execute( new String[]{url});
     }
-
-    public void accessWebService2(){
-
-        JsonReadTask3 task3 = new JsonReadTask3();
-        task3.execute(new String[]{url1, url2, url3 });
-    }
-
-
 
 
     //cyg 최경규 교수님 평판 이벤트

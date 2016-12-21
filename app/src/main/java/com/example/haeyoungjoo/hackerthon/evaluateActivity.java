@@ -95,54 +95,205 @@ public class evaluateActivity extends Activity {
         Intent hi = new Intent(evaluateActivity.this, ViewActivity.class);
 
         if (lecture.compareTo("cyg_cplusplus") == 0) {
-            hi.putExtra("NAME", "cyg");
+            hi.putExtra("NAME", "최영규");
             startActivity(hi);
 
         } else if (lecture.compareTo("cyg_datastructure") == 0) {
 
-            hi.putExtra("NAME", "cyg");
+            hi.putExtra("NAME", "최영규");
             startActivity(hi);
 
         } else if (lecture.compareTo("cyg_graphic") == 0) {
-            hi.putExtra("NAME", "cyg");
+            hi.putExtra("NAME", "최영규");
             startActivity(hi);
         } else if (lecture.compareTo("jgc_computerEngineerBasic") == 0) {
-            hi.putExtra("NAME", "jgc");
+            hi.putExtra("NAME", "정구철");
             startActivity(hi);
         } else if (lecture.compareTo("jgc_C") == 0) {
-            hi.putExtra("NAME", "jgc");
+            hi.putExtra("NAME", "정구철");
             startActivity(hi);
         } else if (lecture.compareTo("jgs_microprocessor") == 0) {
-            hi.putExtra("NAME", "jgs");
+            hi.putExtra("NAME", "장경식");
             startActivity(hi);
         } else if (lecture.compareTo("jgs_embedded") == 0) {
-            hi.putExtra("NAME", "jgs");
+            hi.putExtra("NAME", "장경식");
             startActivity(hi);
         } else if (lecture.compareTo("kys_base_electric_electron") == 0) {
-            hi.putExtra("NAME", "kys");
+            hi.putExtra("NAME", "김윤상");
             startActivity(hi);
         } else if (lecture.compareTo("kys_computer_architecture") == 0) {
-            hi.putExtra("NAME", "kys");
+            hi.putExtra("NAME", "김윤상");
             startActivity(hi);
         } else if (lecture.compareTo("kys_animation") == 0) {
-            hi.putExtra("NAME", "kys");
+            hi.putExtra("NAME", "김윤상");
             startActivity(hi);
         } else if (lecture.compareTo("ljh_C") == 0) {
-            hi.putExtra("NAME", "ljh");
+            hi.putExtra("NAME", "이재협");
             startActivity(hi);
         } else if (lecture.compareTo("ljh_Cplusplus") == 0) {
-            hi.putExtra("NAME", "ljh");
+            hi.putExtra("NAME", "이재협");
             startActivity(hi);
         } else if (lecture.compareTo("ljh_java") == 0) {
-            hi.putExtra("NAME", "ljh");
+            hi.putExtra("NAME", "이재협");
             startActivity(hi);
         } else if (lecture.compareTo("uhg_trash") == 0) {
-            hi.putExtra("NAME", "uhg");
+            hi.putExtra("NAME", "윤한경");
             startActivity(hi);
         } else if (lecture.compareTo("uhg_ai") == 0) {
-            hi.putExtra("NAME", "uhg");
+            hi.putExtra("NAME", "윤한경");
+            startActivity(hi);
+        } else if (lecture.compareTo("hyh+network") == 0) {
+            hi.putExtra("NAME", "한연희");
+            startActivity(hi);
+        } else if (lecture.compareTo("hyh_script") == 0) {
+            hi.putExtra("NAME", "한연희");
+            startActivity(hi);
+        } else if (lecture.compareTo("hyh_spring") == 0) {
+            hi.putExtra("NAME", "한연희");
+            startActivity(hi);
+        } else if (lecture.compareTo("jjs_cplusplus") == 0) {
+            hi.putExtra("NAME", "조재수");
+            startActivity(hi);
+        } else if (lecture.compareTo("jjs_digital") == 0) {
+            hi.putExtra("NAME", "조재수");
+            startActivity(hi);
+        } else if (lecture.compareTo("jjs_digitalsignal") == 0) {
+            hi.putExtra("NAME", "조재수");
+            startActivity(hi);
+        } else if (lecture.compareTo("jjs_c") == 0) {
+            hi.putExtra("NAME", "조재수");
+            startActivity(hi);
+        } else if (lecture.compareTo("jyb_window") == 0) {
+            hi.putExtra("NAME", "주영복");
+            startActivity(hi);
+        } else if (lecture.compareTo("jyb_digital") == 0) {
+            hi.putExtra("NAME", "주영복");
+            startActivity(hi);
+        } else if (lecture.compareTo("jyb_java") == 0) {
+            hi.putExtra("NAME", "주영복");
+            startActivity(hi);
+        } else if (lecture.compareTo("jyb_datastructure") == 0) {
+            hi.putExtra("NAME", "주영복");
+            startActivity(hi);
+        } else if (lecture.compareTo("jth_c") == 0) {
+            hi.putExtra("NAME", "조태훈");
+            startActivity(hi);
+        } else if (lecture.compareTo("jth_computervision") == 0) {
+            hi.putExtra("NAME", "조태훈");
+            startActivity(hi);
+        } else if (lecture.compareTo("khj_c") == 0) {
+            hi.putExtra("NAME", "강형주");
+            startActivity(hi);
+        } else if (lecture.compareTo("khj_baseelectricelectron") == 0) {
+            hi.putExtra("NAME", "강형주");
+            startActivity(hi);
+        } else if (lecture.compareTo("khj_digital") == 0) {
+            hi.putExtra("NAME", "강형주");
+            startActivity(hi);
+        } else if (lecture.compareTo("khj_microprocessor") == 0) {
+            hi.putExtra("NAME", "강형주");
+            startActivity(hi);
+        } else if (lecture.compareTo("lkh_base_Average") == 0) {
+            hi.putExtra("NAME", "이강환");
+            startActivity(hi);
+        } else if (lecture.compareTo("lkh_digital") == 0) {
+            hi.putExtra("NAME", "이강환");
+            startActivity(hi);
+        } else if (lecture.compareTo("lkh_digitalsystem") == 0) {
+            hi.putExtra("NAME", "이강환");
+            startActivity(hi);
+        } else if (lecture.compareTo("ksw_computer") == 0) {
+            hi.putExtra("NAME", "강승우");
+            startActivity(hi);
+        } else if (lecture.compareTo("ksw_mobile") == 0) {
+            hi.putExtra("NAME", "강승우");
+            startActivity(hi);
+        } else if (lecture.compareTo("ksw_mobilesystem") == 0) {
+            hi.putExtra("NAME", "강승우");
+            startActivity(hi);
+        } else if (lecture.compareTo("kek_creative_Average") == 0) {
+            hi.putExtra("NAME", "김은경");
+            startActivity(hi);
+        } else if (lecture.compareTo("kek_database_Average") == 0) {
+            hi.putExtra("NAME", "김은경");
+            startActivity(hi);
+        } else if (lecture.compareTo("ksj_java_Average") == 0) {
+            hi.putExtra("NAME", "김상진");
+            startActivity(hi);
+        } else if (lecture.compareTo("ksj_object_Average") == 0) {
+            hi.putExtra("NAME", "김상진");
+            startActivity(hi);
+        } else if (lecture.compareTo("ksj_protect") == 0) {
+            hi.putExtra("NAME", "김상진");
+            startActivity(hi);
+        } else if (lecture.compareTo("ksy_microprocessor_Average") == 0) {
+            hi.putExtra("NAME", "김상연");
+            startActivity(hi);
+        } else if (lecture.compareTo("ksy_smart_Average") == 0) {
+            hi.putExtra("NAME", "김상연");
+            startActivity(hi);
+        } else if (lecture.compareTo("kwt_base_Average") == 0) {
+            hi.putExtra("NAME", "김원태");
+            startActivity(hi);
+        } else if (lecture.compareTo("kwt_network_Average") == 0) {
+            hi.putExtra("NAME", "김원태");
+            startActivity(hi);
+        } else if (lecture.compareTo("kwt_data_Average") == 0) {
+            hi.putExtra("NAME", "김원태");
+            startActivity(hi);
+        } else if (lecture.compareTo("kwt_smart_Average") == 0) {
+            hi.putExtra("NAME", "김원태");
+            startActivity(hi);
+        } else if (lecture.compareTo("koy_operation_Average") == 0) {
+            hi.putExtra("NAME", "권오영");
+            startActivity(hi);
+        } else if (lecture.compareTo("koy_compile_Average") == 0) {
+            hi.putExtra("NAME", "권오영");
+            startActivity(hi);
+        } else if (lecture.compareTo("koy_embeded_Average") == 0) {
+            hi.putExtra("NAME", "권오영");
+            startActivity(hi);
+        } else if (lecture.compareTo("koy_script_Average") == 0) {
+            hi.putExtra("NAME", "권오영");
+            startActivity(hi);
+        } else if (lecture.compareTo("mjk_database_Average") == 0) {
+            hi.putExtra("NAME", "민준기");
+            startActivity(hi);
+        } else if (lecture.compareTo("mjk_software_Average") == 0) {
+            hi.putExtra("NAME", "민준기");
+            startActivity(hi);
+        } else if (lecture.compareTo("mhmd_java_Average") == 0) {
+            hi.putExtra("NAME", "무하마드");
+            startActivity(hi);
+        } else if (lecture.compareTo("mhmd_datastructure_Average") == 0) {
+            hi.putExtra("NAME", "무하마드");
+            startActivity(hi);
+        } else if (lecture.compareTo("mhmd_algo") == 0) {
+            hi.putExtra("NAME", "무하마드");
+            startActivity(hi);
+        } else if (lecture.compareTo("mhmd_databasepro") == 0) {
+            hi.putExtra("NAME", "무하마드");
+            startActivity(hi);
+        } else if (lecture.compareTo("mjy_web") == 0) {
+            hi.putExtra("NAME", "문일영");
+            startActivity(hi);
+        } else if (lecture.compareTo("mjy_mobile") == 0) {
+            hi.putExtra("NAME", "문일영");
+            startActivity(hi);
+        } else if (lecture.compareTo("mjy_advanceweb") == 0) {
+            hi.putExtra("NAME", "문일영");
+            startActivity(hi);
+        } else if (lecture.compareTo("psc_smartnetwork") == 0) {
+            hi.putExtra("NAME", "박승철");
+            startActivity(hi);
+        } else if (lecture.compareTo("shs_operation") == 0) {
+            hi.putExtra("NAME", "서희석");
+            startActivity(hi);
+        } else if (lecture.compareTo("shs_system") == 0) {
+            hi.putExtra("NAME", "서희석");
             startActivity(hi);
         }
+
 
     }
 
@@ -308,6 +459,8 @@ public class evaluateActivity extends Activity {
             StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitNetwork().build());
         }
         String rate = Float.toString(ratevalue);
+
+
 
         try {
 

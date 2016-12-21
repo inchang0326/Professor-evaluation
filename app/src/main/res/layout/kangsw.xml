@@ -123,7 +123,7 @@
         android:orientation="horizontal">
 
         <ImageButton
-            android:id="@+id/cygcall"
+            android:id="@+id/kswcall"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
@@ -132,7 +132,7 @@
             android:src="@drawable/ic_contact_phone_black_24dp"/>
 
         <ImageButton
-            android:id="@+id/cygmail"
+            android:id="@+id/kswmail"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center"

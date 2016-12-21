@@ -56,7 +56,7 @@ public class ViewActivity extends AppCompatActivity {
         System.out.println(professorName + "2");
 
         /* 해당 이름에 맞는 activity를 보여준다 */
-        if (professorName.compareTo("cyg") == 0) {
+        if (professorName.compareTo("최영규") == 0) {
 
             setContentView(R.layout.cyg); //최영규에 하당하는 레이아웃을 여준다.
 
@@ -71,7 +71,7 @@ public class ViewActivity extends AppCompatActivity {
             accessWebServiceRating();
 
 
-        } else if (professorName.compareTo("jgc") == 0) {
+        } else if (professorName.compareTo("정구철") == 0) {
 
             setContentView(R.layout.jgc);
 
@@ -82,7 +82,7 @@ public class ViewActivity extends AppCompatActivity {
             accessWebServiceRating();
 
 
-        } else if (professorName.compareTo("jgs") == 0) {
+        } else if (professorName.compareTo("장경식") == 0) {
 
             setContentView(R.layout.jgs);
             url = "http://jhy753.dothome.co.kr/avgCalculater.php?professorName="+"jgs";
@@ -91,7 +91,7 @@ public class ViewActivity extends AppCompatActivity {
             Average1  = (RatingBar) findViewById(R.id.jgs_embedded_Average);
             accessWebServiceRating();
 
-        } else if (professorName.compareTo("kys") == 0) {
+        } else if (professorName.compareTo("김윤상") == 0) {
             setContentView(R.layout.kys);
 
             url = "http://jhy753.dothome.co.kr/avgCalculater.php?professorName="+"kys";
@@ -102,7 +102,7 @@ public class ViewActivity extends AppCompatActivity {
 
             accessWebServiceRating();
 
-        } else if (professorName.compareTo("ljh") == 0) {
+        } else if (professorName.compareTo("이재협") == 0) {
             setContentView(R.layout.ljh);
             url = "http://jhy753.dothome.co.kr/avgCalculater.php?professorName="+"ljh";
 
@@ -113,7 +113,7 @@ public class ViewActivity extends AppCompatActivity {
 
             accessWebServiceRating();
 
-        } else if (professorName.compareTo("uhg") == 0) {
+        } else if (professorName.compareTo("윤한경") == 0) {
 
             setContentView(R.layout.uhg);
 
@@ -124,7 +124,7 @@ public class ViewActivity extends AppCompatActivity {
 
             accessWebServiceRating();
 
-        } else if (professorName.compareTo("hyh") == 0) {//한연희
+        } else if (professorName.compareTo("한연희") == 0) {//한연희
 
             setContentView(R.layout.hanyunhee);
 
@@ -136,7 +136,7 @@ public class ViewActivity extends AppCompatActivity {
 
             accessWebServiceRating();
 
-        } else if (professorName.compareTo("jjs") == 0) {//조재수
+        } else if (professorName.compareTo("조재수") == 0) {//조재수
 
             setContentView(R.layout.jojaesu);
 
@@ -149,7 +149,7 @@ public class ViewActivity extends AppCompatActivity {
 
             accessWebServiceRating();
 
-        } else if (professorName.compareTo("jyb") == 0) {//주영복
+        } else if (professorName.compareTo("주영복") == 0) {//주영복
 
             setContentView(R.layout.jyb);
 
@@ -162,7 +162,7 @@ public class ViewActivity extends AppCompatActivity {
 
             accessWebServiceRating();
 
-        } else if (professorName.compareTo("jth") == 0) {//조태훈
+        } else if (professorName.compareTo("조태훈") == 0) {//조태훈
 
             setContentView(R.layout.jth);
 
@@ -173,7 +173,7 @@ public class ViewActivity extends AppCompatActivity {
 
             accessWebServiceRating();
 
-        } else if (professorName.compareTo("khj") == 0) {//강형주
+        } else if (professorName.compareTo("강형주") == 0) {//강형주
 
             setContentView(R.layout.kanghj);
 
@@ -186,7 +186,7 @@ public class ViewActivity extends AppCompatActivity {
 
             accessWebServiceRating();
 
-        } else if (professorName.compareTo("lkh") == 0) {//이강환
+        } else if (professorName.compareTo("이강환") == 0) {//이강환
 
             setContentView(R.layout.leekh);
 
@@ -197,7 +197,7 @@ public class ViewActivity extends AppCompatActivity {
             Average2  = (RatingBar) findViewById(R.id.lkh_digitalsystem_Average);
 
             accessWebServiceRating();
-        } else if (professorName.compareTo("ksw") == 0) {//강승우
+        } else if (professorName.compareTo("강승우") == 0) {//강승우
 
             setContentView(R.layout.kangsw);
 
@@ -210,7 +210,7 @@ public class ViewActivity extends AppCompatActivity {
 
             accessWebServiceRating();
 
-        } else if (professorName.compareTo("kek") == 0) {//김은경
+        } else if (professorName.compareTo("김은경") == 0) {//김은경
 
             setContentView(R.layout.kimek);
 
@@ -221,7 +221,7 @@ public class ViewActivity extends AppCompatActivity {
 
             accessWebServiceRating();
 
-        } else if (professorName.compareTo("ksj") == 0) {//김상진
+        } else if (professorName.compareTo("김상진") == 0) {//김상진
 
             setContentView(R.layout.kimsj);
 
@@ -233,7 +233,7 @@ public class ViewActivity extends AppCompatActivity {
 
             accessWebServiceRating();
 
-        } else if (professorName.compareTo("ksy") == 0) {//김상연
+        } else if (professorName.compareTo("김상연") == 0) {//김상연
 
             setContentView(R.layout.kimsy);
 
@@ -244,7 +244,7 @@ public class ViewActivity extends AppCompatActivity {
 
             accessWebServiceRating();
 
-        } else if (professorName.compareTo("kwt") == 0) {//김원태
+        } else if (professorName.compareTo("김원태") == 0) {//김원태
 
             setContentView(R.layout.kimwt);
 
@@ -256,7 +256,7 @@ public class ViewActivity extends AppCompatActivity {
             Average4  = (RatingBar) findViewById(R.id.kwt_smart_Average);
 
             accessWebServiceRating();
-        } else if (professorName.compareTo("koy") == 0) {//권오영
+        } else if (professorName.compareTo("권오영") == 0) {//권오영
 
             setContentView(R.layout.kwonoy);
 
@@ -269,7 +269,7 @@ public class ViewActivity extends AppCompatActivity {
 
             accessWebServiceRating();
 
-        } else if (professorName.compareTo("mjk") == 0) {//민준기
+        } else if (professorName.compareTo("민준기") == 0) {//민준기
 
             setContentView(R.layout.minjk);
 
@@ -279,7 +279,7 @@ public class ViewActivity extends AppCompatActivity {
             Average2  = (RatingBar) findViewById(R.id.mjk_software_Average);
 
             accessWebServiceRating();
-        } else if (professorName.compareTo("mhmd") == 0) {//무하마드
+        } else if (professorName.compareTo("무하마드") == 0) {//무하마드
 
             setContentView(R.layout.mohamad);
 
@@ -291,7 +291,7 @@ public class ViewActivity extends AppCompatActivity {
             Average4  = (RatingBar) findViewById(R.id.mhmd_java_Average);
 
             accessWebServiceRating();
-        } else if (professorName.compareTo("miy") == 0) {//문일영
+        } else if (professorName.compareTo("문일영") == 0) {//문일영
 
             setContentView(R.layout.mooniy);
 
@@ -303,7 +303,7 @@ public class ViewActivity extends AppCompatActivity {
 
             accessWebServiceRating();
 
-        } else if (professorName.compareTo("psc") == 0) {//박승철
+        } else if (professorName.compareTo("박승철") == 0) {//박승철
 
             setContentView(R.layout.parksc);
 
@@ -313,7 +313,7 @@ public class ViewActivity extends AppCompatActivity {
 
             accessWebServiceRating();
         }
-        else if (professorName.compareTo("shs") == 0) {//서희석
+        else if (professorName.compareTo("서희석") == 0) {//서희석
 
             setContentView(R.layout.seohs);
 
@@ -324,7 +324,6 @@ public class ViewActivity extends AppCompatActivity {
 
             accessWebServiceRating();
         }
-
 
     }
 
@@ -970,16 +969,6 @@ public class ViewActivity extends AppCompatActivity {
         finish();
     }
 
-
-
-
-
-
-
-
-
-
-
     public void onClickCall(View view){
 
         Intent intent= null;
@@ -1004,7 +993,51 @@ public class ViewActivity extends AppCompatActivity {
             case R.id.uhgcall:
                 intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:(+82)0415601182") );
                 break;
-
+            case R.id.hyhcall:
+                intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:(+82)0415601486") );
+                break;
+            case R.id.jjscall:
+                intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:(+82)0415601491") );
+                break;
+            case R.id.jybcall:
+                intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:(+82)01048207038") );
+                break;
+            case R.id.jthcall:
+                intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:(+82)0415601351") );
+                break;
+            case R.id.khjcall:
+                intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:(+82)0415601420") );
+                break;
+            case R.id.lkhcall:
+                intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:(+82)0415601356") );
+                break;
+            case R.id.kswcall:
+                intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:(+82)0415601406") );
+                break;
+            case R.id.kekcall:
+                intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:(+82)0415601350") );
+                break;
+            case R.id.ksjcall:
+                intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:(+82)0415601350") );
+                break;
+            case R.id.ksycall:
+                intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:(+82)0415601484") );
+                break;
+            case R.id.kwtcall:
+                intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:(+82)0415601485") );
+                break;
+            case R.id.koycall:
+                intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:(+82)0415601354") );
+                break;
+            case R.id.mjkcall:
+                intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:(+82)0415601494") );
+                break;
+            case R.id.mhmdcall:
+                intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:(+82)0415601483") );
+                break;
+            case R.id.miycall:
+                intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:(+82)0415601493") );
+                break;
         }
 
         if(intent != null ){
@@ -1035,8 +1068,50 @@ public class ViewActivity extends AppCompatActivity {
             case R.id.ljhmail:
                 intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:jae@koreatech.ac.kr") );
                 break;
-            case R.id.uhgmail:
-                intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:hkyun@koreatech.ac.kr") );
+            case R.id.hyhmail:
+                intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:yhhan@koreatech.ac.kr") );
+                break;
+            case R.id.jjsmail:
+                intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:jaesoo27@koreatech.ac.kr") );
+                break;
+            case R.id.jybmail:
+                intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:ybjoo@koreatech.ac.kr") );
+                break;
+            case R.id.jthmail:
+                intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:thcho@koreatech.ac.kr") );
+                break;
+            case R.id.khjmail:
+                intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:hjkang@koreatech.ac.kr") );
+                break;
+            case R.id.lkhmail:
+                intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:kwlee@koreatech.ac.kr") );
+                break;
+            case R.id.kswmail:
+                intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:swkang@koreatech.ac.kr") );
+                break;
+            case R.id.kekmail:
+                intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:egkim@koreatech.ac.kr") );
+                break;
+            case R.id.ksjmail:
+                intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:sangjin@koreatech.ac.kr") );
+                break;
+            case R.id.ksymail:
+                intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:sykim@koreatech.ac.kr") );
+                break;
+            case R.id.kwtmail:
+                intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:wtkim@koreatech.ac.kr") );
+                break;
+            case R.id.koymail:
+                intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:oykwon@koreatech.ac.kr") );
+                break;
+            case R.id.mjkmail:
+                intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:jkmin@koreatech.ac.kr") );
+                break;
+            case R.id.mhmdmail:
+                intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:tariq@koreatech.ac.kr") );
+                break;
+            case R.id.miymail:
+                intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:iymoon@koreatech.ac.kr") );
                 break;
         }
 

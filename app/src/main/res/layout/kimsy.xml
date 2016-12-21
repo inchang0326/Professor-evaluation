@@ -81,7 +81,7 @@
             android:src="@drawable/ic_contact_phone_black_24dp"/>
 
         <ImageButton
-            android:id="@+id/ksy"
+            android:id="@+id/ksymail"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center"

@@ -97,7 +97,7 @@
         android:orientation="horizontal">
 
         <ImageButton
-            android:id="@+id/ikhcall"
+            android:id="@+id/lkhcall"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
@@ -106,7 +106,7 @@
             android:src="@drawable/ic_contact_phone_black_24dp"/>
 
         <ImageButton
-            android:id="@+id/ikhmail"
+            android:id="@+id/lkhmail"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center"

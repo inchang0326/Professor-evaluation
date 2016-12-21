@@ -119,8 +119,8 @@ public class ViewActivity extends AppCompatActivity {
 
             url = "http://jhy753.dothome.co.kr/avgCalculater.php?professorName="+"uhg";
 
-            Average2  = (RatingBar) findViewById(R.id.uhg_ai_Average);
-            Average1  = (RatingBar) findViewById(R.id.uhg_trash_Average);
+            Average1  = (RatingBar) findViewById(R.id.uhg_ai_Average);
+            Average2  = (RatingBar) findViewById(R.id.uhg_trash_Average);
 
             accessWebServiceRating();
 
@@ -142,10 +142,10 @@ public class ViewActivity extends AppCompatActivity {
 
             url = "http://jhy753.dothome.co.kr/avgCalculater.php?professorName="+"jjs";
 
-            Average1  = (RatingBar) findViewById(R.id.jjs_cplusplus_Average);
-            Average2  = (RatingBar) findViewById(R.id.jjs_digital_Average);
-            Average3  = (RatingBar) findViewById(R.id.jjs_digitalsignal_Average);
-            Average4 = (RatingBar)findViewById(R.id.jjs_c_Average);
+            Average2  = (RatingBar) findViewById(R.id.jjs_cplusplus_Average);
+            Average3  = (RatingBar) findViewById(R.id.jjs_digital_Average);
+            Average4  = (RatingBar) findViewById(R.id.jjs_digitalsignal_Average);
+            Average1 = (RatingBar)findViewById(R.id.jjs_c_Average);
 
             accessWebServiceRating();
 
@@ -155,10 +155,10 @@ public class ViewActivity extends AppCompatActivity {
 
             url = "http://jhy753.dothome.co.kr/avgCalculater.php?professorName="+"jyb";
 
-            Average1  = (RatingBar) findViewById(R.id.jyb_window_Average);
+            Average4  = (RatingBar) findViewById(R.id.jyb_window_Average);
             Average2  = (RatingBar) findViewById(R.id.jyb_digital_Average);
             Average3  = (RatingBar) findViewById(R.id.jyb_java_Average);
-            Average4  = (RatingBar) findViewById(R.id.jyb_datastructure_Average);
+            Average1  = (RatingBar) findViewById(R.id.jyb_datastructure_Average);
 
             accessWebServiceRating();
 
@@ -168,8 +168,8 @@ public class ViewActivity extends AppCompatActivity {
 
             url = "http://jhy753.dothome.co.kr/avgCalculater.php?professorName="+"jth";
 
-            Average2  = (RatingBar) findViewById(R.id.jth_c_Average);
-            Average1  = (RatingBar) findViewById(R.id.jth_computervision_Average);
+            Average1  = (RatingBar) findViewById(R.id.jth_c_Average);
+            Average2  = (RatingBar) findViewById(R.id.jth_computervision_Average);
 
             accessWebServiceRating();
 
@@ -190,13 +190,14 @@ public class ViewActivity extends AppCompatActivity {
 
             setContentView(R.layout.leekh);
 
-            url = "http://jhy753.dothome.co.kr/avgCalculater.php?professorName="+"ikh";
+            url = "http://jhy753.dothome.co.kr/avgCalculater.php?professorName="+"lkh";
 
             Average1  = (RatingBar) findViewById(R.id.lkh_base_Average);
             Average2  = (RatingBar) findViewById(R.id.lkh_digital_Average);
-            Average2  = (RatingBar) findViewById(R.id.lkh_digitalsystem_Average);
+            Average3  = (RatingBar) findViewById(R.id.lkh_digitalsystem_Average);
 
             accessWebServiceRating();
+
         } else if (professorName.compareTo("강승우") == 0) {//강승우
 
             setContentView(R.layout.kangsw);
@@ -256,6 +257,7 @@ public class ViewActivity extends AppCompatActivity {
             Average4  = (RatingBar) findViewById(R.id.kwt_smart_Average);
 
             accessWebServiceRating();
+
         } else if (professorName.compareTo("권오영") == 0) {//권오영
 
             setContentView(R.layout.kwonoy);
@@ -297,9 +299,9 @@ public class ViewActivity extends AppCompatActivity {
 
             url = "http://jhy753.dothome.co.kr/avgCalculater.php?professorName="+"miy";
 
-            Average1 = (RatingBar) findViewById(R.id.miy_web_Average);
-            Average2  = (RatingBar) findViewById(R.id.miy_advancedweb_Average);
-            Average3  = (RatingBar) findViewById(R.id.miy_mobile_Average);
+            Average3 = (RatingBar) findViewById(R.id.miy_web_Average);
+            Average1  = (RatingBar) findViewById(R.id.miy_advancedweb_Average);
+            Average2  = (RatingBar) findViewById(R.id.miy_mobile_Average);
 
             accessWebServiceRating();
 
@@ -691,6 +693,7 @@ public class ViewActivity extends AppCompatActivity {
     }
     public void khj_baseelectricelectron(View view){
         Log.d("ViewActivity","khj_baseelectricelectron");
+
         Intent i = new Intent(this, evaluateActivity.class);
         i.putExtra("professorlecture","khj_baseelectricelectron");
         startActivity(i);
@@ -711,6 +714,7 @@ public class ViewActivity extends AppCompatActivity {
         finish();
     }
 
+
     //이강환
     public void lkh_base(View view){
         Log.d("ViewActivity","lkh_base");
@@ -719,15 +723,15 @@ public class ViewActivity extends AppCompatActivity {
         startActivity(i);
         finish();
     }
-    public void ikh_digital(View view){
-        Log.d("ViewActivity","ikh_digital");
+    public void lkh_digital(View view){
+        Log.d("ViewActivity","lkh_digital");
         Intent i = new Intent(this, evaluateActivity.class);
         i.putExtra("professorlecture","lkh_digital");
         startActivity(i);
         finish();
     }
-    public void ikh_digitalsystem(View view){
-        Log.d("ViewActivity","ikh_digitalsystem");
+    public void lkh_digitalsystem(View view){
+        Log.d("ViewActivity","lkh_digitalsystem");
         Intent i = new Intent(this, evaluateActivity.class);
         i.putExtra("professorlecture","lkh_digitalsystem");
         startActivity(i);
@@ -753,6 +757,13 @@ public class ViewActivity extends AppCompatActivity {
         Log.d("ViewActivity","ksw_mobilesystem");
         Intent i = new Intent(this, evaluateActivity.class);
         i.putExtra("professorlecture","ksw_mobilesystem");
+        startActivity(i);
+        finish();
+    }
+    public void ksw_script(View view){
+        Log.d("ViewActivity","ksw_script");
+        Intent i = new Intent(this, evaluateActivity.class);
+        i.putExtra("professorlecture","ksw_script");
         startActivity(i);
         finish();
     }
@@ -798,16 +809,16 @@ public class ViewActivity extends AppCompatActivity {
 
     //김상연
     public void ksy_microprocessor(View view){
-        Log.d("ViewActivity","ksj_object");
+        Log.d("ViewActivity","ksy_microprocessor");
         Intent i = new Intent(this, evaluateActivity.class);
-        i.putExtra("professorlecture","ksj_object");
+        i.putExtra("professorlecture","ksy_microprocessor");
         startActivity(i);
         finish();
     }
     public void ksy_smart(View view){
-        Log.d("ViewActivity","ksj_protect");
+        Log.d("ViewActivity","ksy_smart");
         Intent i = new Intent(this, evaluateActivity.class);
-        i.putExtra("professorlecture","ksj_protect");
+        i.putExtra("professorlecture","ksy_smart");
         startActivity(i);
         finish();
     }
@@ -844,7 +855,6 @@ public class ViewActivity extends AppCompatActivity {
     }
 
     //권오영
-
     public void koy_operation(View view){
         Log.d("ViewActivity","koy_operation");
         Intent i = new Intent(this, evaluateActivity.class);

@@ -1,6 +1,10 @@
 package com.example.haeyoungjoo.hackerthon;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -40,7 +44,7 @@ public class evaluateActivity extends Activity {
     RatingBar rating; //별점 등록할때 쓰는 View
     TextView tv01;// RatingBar에 있는 별점을 클릭했을때 그 숫자값을 TextView에 나타냄.
 
-    float ratevalue;//매긴 별점 값
+    static float ratevalue;//매긴 별점 값
 
     private EditText m_EditText_comment;//댓글을 쓸때 사용하는 EditText
 
@@ -49,7 +53,7 @@ public class evaluateActivity extends Activity {
     private ListView listView;//리스트뷰를 통해 댓글을 뿌려준다.
 
     Intent i;
-    String lecture;
+    static String lecture;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -142,7 +146,7 @@ public class evaluateActivity extends Activity {
         } else if (lecture.compareTo("uhg_ai") == 0) {
             hi.putExtra("NAME", "윤한경");
             startActivity(hi);
-        } else if (lecture.compareTo("hyh+network") == 0) {
+        } else if (lecture.compareTo("hyh_network") == 0) {
             hi.putExtra("NAME", "한연희");
             startActivity(hi);
         } else if (lecture.compareTo("hyh_script") == 0) {
@@ -193,7 +197,7 @@ public class evaluateActivity extends Activity {
         } else if (lecture.compareTo("khj_microprocessor") == 0) {
             hi.putExtra("NAME", "강형주");
             startActivity(hi);
-        } else if (lecture.compareTo("lkh_base_Average") == 0) {
+        } else if (lecture.compareTo("lkh_base") == 0) {
             hi.putExtra("NAME", "이강환");
             startActivity(hi);
         } else if (lecture.compareTo("lkh_digital") == 0) {
@@ -211,61 +215,66 @@ public class evaluateActivity extends Activity {
         } else if (lecture.compareTo("ksw_mobilesystem") == 0) {
             hi.putExtra("NAME", "강승우");
             startActivity(hi);
-        } else if (lecture.compareTo("kek_creative_Average") == 0) {
+
+        }else if (lecture.compareTo("ksw_script") == 0) {
+            hi.putExtra("NAME", "강승우");
+            startActivity(hi);
+        }
+        else if (lecture.compareTo("kek_creative") == 0) {
             hi.putExtra("NAME", "김은경");
             startActivity(hi);
-        } else if (lecture.compareTo("kek_database_Average") == 0) {
+        } else if (lecture.compareTo("kek_database") == 0) {
             hi.putExtra("NAME", "김은경");
             startActivity(hi);
-        } else if (lecture.compareTo("ksj_java_Average") == 0) {
+        } else if (lecture.compareTo("ksj_java") == 0) {
             hi.putExtra("NAME", "김상진");
             startActivity(hi);
-        } else if (lecture.compareTo("ksj_object_Average") == 0) {
+        } else if (lecture.compareTo("ksj_object") == 0) {
             hi.putExtra("NAME", "김상진");
             startActivity(hi);
         } else if (lecture.compareTo("ksj_protect") == 0) {
             hi.putExtra("NAME", "김상진");
             startActivity(hi);
-        } else if (lecture.compareTo("ksy_microprocessor_Average") == 0) {
+        } else if (lecture.compareTo("ksy_microprocessor") == 0) {
             hi.putExtra("NAME", "김상연");
             startActivity(hi);
-        } else if (lecture.compareTo("ksy_smart_Average") == 0) {
+        } else if (lecture.compareTo("ksy_smart") == 0) {
             hi.putExtra("NAME", "김상연");
             startActivity(hi);
-        } else if (lecture.compareTo("kwt_base_Average") == 0) {
+        } else if (lecture.compareTo("kwt_base") == 0) {
             hi.putExtra("NAME", "김원태");
             startActivity(hi);
-        } else if (lecture.compareTo("kwt_network_Average") == 0) {
+        } else if (lecture.compareTo("kwt_network") == 0) {
             hi.putExtra("NAME", "김원태");
             startActivity(hi);
-        } else if (lecture.compareTo("kwt_data_Average") == 0) {
+        } else if (lecture.compareTo("kwt_data") == 0) {
             hi.putExtra("NAME", "김원태");
             startActivity(hi);
-        } else if (lecture.compareTo("kwt_smart_Average") == 0) {
+        } else if (lecture.compareTo("kwt_smart") == 0) {
             hi.putExtra("NAME", "김원태");
             startActivity(hi);
-        } else if (lecture.compareTo("koy_operation_Average") == 0) {
+        } else if (lecture.compareTo("koy_operation") == 0) {
             hi.putExtra("NAME", "권오영");
             startActivity(hi);
-        } else if (lecture.compareTo("koy_compile_Average") == 0) {
+        } else if (lecture.compareTo("koy_compile") == 0) {
             hi.putExtra("NAME", "권오영");
             startActivity(hi);
-        } else if (lecture.compareTo("koy_embeded_Average") == 0) {
+        } else if (lecture.compareTo("koy_embeded") == 0) {
             hi.putExtra("NAME", "권오영");
             startActivity(hi);
-        } else if (lecture.compareTo("koy_script_Average") == 0) {
+        } else if (lecture.compareTo("koy_script") == 0) {
             hi.putExtra("NAME", "권오영");
             startActivity(hi);
-        } else if (lecture.compareTo("mjk_database_Average") == 0) {
+        } else if (lecture.compareTo("mjk_database") == 0) {
             hi.putExtra("NAME", "민준기");
             startActivity(hi);
-        } else if (lecture.compareTo("mjk_software_Average") == 0) {
+        } else if (lecture.compareTo("mjk_software") == 0) {
             hi.putExtra("NAME", "민준기");
             startActivity(hi);
-        } else if (lecture.compareTo("mhmd_java_Average") == 0) {
+        } else if (lecture.compareTo("mhmd_java") == 0) {
             hi.putExtra("NAME", "무하마드");
             startActivity(hi);
-        } else if (lecture.compareTo("mhmd_datastructure_Average") == 0) {
+        } else if (lecture.compareTo("mhmd_datastructure") == 0) {
             hi.putExtra("NAME", "무하마드");
             startActivity(hi);
         } else if (lecture.compareTo("mhmd_algo") == 0) {
@@ -274,13 +283,13 @@ public class evaluateActivity extends Activity {
         } else if (lecture.compareTo("mhmd_databasepro") == 0) {
             hi.putExtra("NAME", "무하마드");
             startActivity(hi);
-        } else if (lecture.compareTo("mjy_web") == 0) {
+        } else if (lecture.compareTo("miy_web") == 0) {
             hi.putExtra("NAME", "문일영");
             startActivity(hi);
-        } else if (lecture.compareTo("mjy_mobile") == 0) {
+        } else if (lecture.compareTo("miy_mobile") == 0) {
             hi.putExtra("NAME", "문일영");
             startActivity(hi);
-        } else if (lecture.compareTo("mjy_advanceweb") == 0) {
+        } else if (lecture.compareTo("miy_advancedweb") == 0) {
             hi.putExtra("NAME", "문일영");
             startActivity(hi);
         } else if (lecture.compareTo("psc_smartnetwork") == 0) {
@@ -447,6 +456,46 @@ public class evaluateActivity extends Activity {
         }
     }
 
+    public static class ButtonDialogFragment extends DialogFragment {
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            // Use the Builder class for convenient dialog construction
+            AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+            builder.setTitle("최선입니까?")
+                    .setMessage("별점을 등록하시겠습니까?")
+                    .setNegativeButton("yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            String rate = Float.toString(ratevalue);
+                            try {
+
+                                URL url = new URL("http://jhy753.dothome.co.kr/insertScoreValue.php?avg=" + rate + "&lecture=" + lecture);
+                                //여기 주소를 바꿔주면 된다. 데이터를 추가하려면 변수를 추가 해서 이어붙이면 된다. &기호로 이어붙인다. ex) name=les&num=20130610&phone=1111
+                                URLConnection conn = url.openConnection();
+                                //url경로를 열어준다.
+                                conn.getInputStream();
+                                //해당 url로 접속한다.
+                                Log.i("msg", "go");
+                            } catch (Exception e) {
+                                // TODO Auto-generated catch block
+                                e.printStackTrace();
+                                Log.i("msg", "no");
+                            }
+                        }
+                    })
+                    .setPositiveButton("no", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+
+            // Create the AlertDialog object and return it
+            return builder.create();
+        }
+    }
+
     //별점을  등록!
     public void evaluate_Enrollment(View view) {
 
@@ -458,23 +507,15 @@ public class evaluateActivity extends Activity {
         if (version > 8) {
             StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitNetwork().build());
         }
-        String rate = Float.toString(ratevalue);
+        //String rate = Float.toString(ratevalue);
+
+        // 위에서 정의한 ButtonDialogFragment 클래스의 객체를 생성
+        DialogFragment myFragment = new ButtonDialogFragment();
+
+        // show 메소드 호출을 통하여 대화상자가 화면에 표시되도록 함
+        myFragment.show(getFragmentManager(), "FinishDialog");
 
 
 
-        try {
-
-            URL url = new URL("http://jhy753.dothome.co.kr/insertScoreValue.php?avg=" + rate + "&lecture=" + lecture);
-            //여기 주소를 바꿔주면 된다. 데이터를 추가하려면 변수를 추가 해서 이어붙이면 된다. &기호로 이어붙인다. ex) name=les&num=20130610&phone=1111
-            URLConnection conn = url.openConnection();
-            //url경로를 열어준다.
-            conn.getInputStream();
-            //해당 url로 접속한다.
-            Log.i("msg", "go");
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-            Log.i("msg", "no");
-        }
     }
 }

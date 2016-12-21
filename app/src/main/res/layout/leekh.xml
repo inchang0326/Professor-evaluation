@@ -60,7 +60,7 @@
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:text="평판"
-            android:onClick="ikh_digital"/>
+            android:onClick="lkh_digital"/>
 
     </LinearLayout>
 
@@ -86,7 +86,7 @@
             android:layout_height="wrap_content"
             android:text="평판"
             android:textSize="20dp"
-            android:onClick="ikh_digitalsystem"/>
+            android:onClick="lkh_digitalsystem"/>
 
     </LinearLayout>
 

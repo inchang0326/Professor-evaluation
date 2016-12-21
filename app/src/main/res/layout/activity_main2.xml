@@ -8,7 +8,7 @@
         android:textSize="26sp"
         android:layout_marginRight="8dp"
         android:id="@+id/textView"
-        android:text="Filter Text" />
+        android:text="교수님 검색" />
 
     <EditText
         android:layout_width="match_parent"

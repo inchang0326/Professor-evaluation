@@ -112,7 +112,7 @@
             android:layout_height="wrap_content"
             android:text="평판"
             android:textSize="20dp"
-            android:onClick="ksw_mobilesystem"/>
+            android:onClick="ksw_script"/>
 
     </LinearLayout>
 

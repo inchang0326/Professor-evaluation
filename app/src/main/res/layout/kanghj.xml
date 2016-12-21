@@ -86,7 +86,7 @@
             android:layout_height="wrap_content"
             android:text="평판"
             android:textSize="20dp"
-            android:onClick="cyg_graphic"/>
+            android:onClick="khj_digital"/>
 
     </LinearLayout>
 
@@ -98,7 +98,7 @@
         <TextView
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:text="디지털집적회로"
+            android:text="마이크로프로세서"
             android:textSize="20dp"/>
         <RatingBar android:id="@+id/khj_microprocessor_Average"
             android:paddingTop="15dp"

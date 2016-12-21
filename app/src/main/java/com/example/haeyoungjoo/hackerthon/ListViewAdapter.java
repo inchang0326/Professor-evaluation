@@ -15,11 +15,15 @@ import android.widget.ImageView;
 import java.util.ArrayList;
 
 public class ListViewAdapter extends BaseAdapter {
+
+
     // Adapter에 추가된 데이터를 저장하기 위한 ArrayList
     private ArrayList<ListViewItem> listViewItemList = new ArrayList<ListViewItem>() ;
 
+
     // ListViewAdapter의 생성자
-    public ListViewAdapter() {
+    public ListViewAdapter()  {
+
 
     }
 

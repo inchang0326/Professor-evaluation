@@ -6,8 +6,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:src="@drawable/jgs"
-
+        android:src="@drawable/kimsangjin"
         />
 
     <LinearLayout
@@ -18,21 +17,23 @@
         <TextView
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:text="마이크로프로세서"
+            android:text="자바프로그래밍"
             android:textSize="20dp"/>
-        <RatingBar android:id="@+id/jgs_microprocessor_Average"
+
+        <RatingBar android:id="@+id/ksj_java_Average"
             android:paddingTop="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:numStars="5"
             android:rating="0"
             style="?android:attr/ratingBarStyleSmall"/>
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:text="평판"
-            android:onClick="jgs_microprocessor"/>
+            android:onClick="ksj_java"/>
 
     </LinearLayout>
 
@@ -44,9 +45,9 @@
         <TextView
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:text="임베디드"
+            android:text="객체지향개발론"
             android:textSize="20dp"/>
-        <RatingBar android:id="@+id/jgs_embedded_Average"
+        <RatingBar android:id="@+id/ksj_object_Average"
             android:paddingTop="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -58,7 +59,33 @@
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:text="평판"
-            android:onClick="jgs_embedded"/>
+            android:onClick="ksj_object"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="정보보호개론"
+            android:textSize="20dp"/>
+        <RatingBar android:id="@+id/ksj_protect_Average"
+            android:paddingTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:rating="0"
+            style="?android:attr/ratingBarStyleSmall"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="평판"
+            android:textSize="20dp"
+            android:onClick="ksj_protect"/>
 
     </LinearLayout>
 
@@ -66,10 +93,10 @@
         android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
         <ImageButton
-            android:id="@+id/jgscall"
+            android:id="@+id/ksjcall"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
@@ -78,7 +105,7 @@
             android:src="@drawable/ic_contact_phone_black_24dp"/>
 
         <ImageButton
-            android:id="@+id/jgsmail"
+            android:id="@+id/ksjmail"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
@@ -88,6 +115,10 @@
 
 
     </LinearLayout>
+
+
+
+
 
 
 

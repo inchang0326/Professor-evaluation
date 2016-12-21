@@ -6,7 +6,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:src="@drawable/jgs"
+        android:src="@drawable/hanyunhee"
 
         />
 
@@ -18,21 +18,23 @@
         <TextView
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:text="마이크로프로세서"
+            android:text="컴퓨터네트워크"
             android:textSize="20dp"/>
-        <RatingBar android:id="@+id/jgs_microprocessor_Average"
+
+        <RatingBar android:id="@+id/hyh_network_Average"
             android:paddingTop="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:numStars="5"
             android:rating="0"
             style="?android:attr/ratingBarStyleSmall"/>
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:text="평판"
-            android:onClick="jgs_microprocessor"/>
+            android:onClick="hyh_network"/>
 
     </LinearLayout>
 
@@ -44,9 +46,9 @@
         <TextView
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:text="임베디드"
+            android:text="스프링"
             android:textSize="20dp"/>
-        <RatingBar android:id="@+id/jgs_embedded_Average"
+        <RatingBar android:id="@+id/hyh_spring_Average"
             android:paddingTop="15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -58,7 +60,33 @@
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:text="평판"
-            android:onClick="jgs_embedded"/>
+            android:onClick="hyh_spring"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="스크립트프로그래밍"
+            android:textSize="20dp"/>
+        <RatingBar android:id="@+id/hyh_script_Average"
+            android:paddingTop="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:rating="0"
+            style="?android:attr/ratingBarStyleSmall"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="평판"
+            android:textSize="20dp"
+            android:onClick="hyh_script"/>
 
     </LinearLayout>
 
@@ -69,7 +97,7 @@
         android:orientation="vertical">
 
         <ImageButton
-            android:id="@+id/jgscall"
+            android:id="@+id/hyhcall"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
@@ -78,7 +106,7 @@
             android:src="@drawable/ic_contact_phone_black_24dp"/>
 
         <ImageButton
-            android:id="@+id/jgsmail"
+            android:id="@+id/hyhmail"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
@@ -88,7 +116,6 @@
 
 
     </LinearLayout>
-
 
 
 </LinearLayout>

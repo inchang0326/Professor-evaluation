@@ -6,7 +6,6 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.util.Log;
-import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -30,6 +29,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -55,14 +55,14 @@ public class evaluateActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.evaluate);
+        Log.d("evaluateActivity","onCreate()");
 
+        setContentView(R.layout.evaluate);
         listView = (ListView) findViewById(R.id.list);
         i = getIntent(); // 해당교수 강의이름을 받아옴.
         lecture = i.getExtras().getString("professorlecture");
 
-
-        url ="http://jhy753.dothome.co.kr/commentList.php?lecture="+lecture;
+        url = "http://jhy753.dothome.co.kr/commentList.php?lecture=" + lecture;
 
         accessWebService();
 
@@ -85,19 +85,72 @@ public class evaluateActivity extends Activity {
         m_EditText_comment = (EditText) findViewById(R.id.EditTextComment);
 
     }
+
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        //getMenuInflater().inflate(R.menu.main, menu);
-        return true;
+    protected void onPause() {
+
+        super.onPause();
+        Log.d("evaluateActivity","onPause()");
+
+        Intent hi = new Intent(evaluateActivity.this, ViewActivity.class);
+
+        if (lecture.compareTo("cyg_cplusplus") == 0) {
+            hi.putExtra("NAME", "cyg");
+            startActivity(hi);
+
+        } else if (lecture.compareTo("cyg_datastructure") == 0) {
+
+            hi.putExtra("NAME", "cyg");
+            startActivity(hi);
+
+        } else if (lecture.compareTo("cyg_graphic") == 0) {
+            hi.putExtra("NAME", "cyg");
+            startActivity(hi);
+        } else if (lecture.compareTo("jgc_computerEngineerBasic") == 0) {
+            hi.putExtra("NAME", "jgc");
+            startActivity(hi);
+        } else if (lecture.compareTo("jgc_C") == 0) {
+            hi.putExtra("NAME", "jgc");
+            startActivity(hi);
+        } else if (lecture.compareTo("jgs_microprocessor") == 0) {
+            hi.putExtra("NAME", "jgs");
+            startActivity(hi);
+        } else if (lecture.compareTo("jgs_embedded") == 0) {
+            hi.putExtra("NAME", "jgs");
+            startActivity(hi);
+        } else if (lecture.compareTo("kys_base_electric_electron") == 0) {
+            hi.putExtra("NAME", "kys");
+            startActivity(hi);
+        } else if (lecture.compareTo("kys_computer_architecture") == 0) {
+            hi.putExtra("NAME", "kys");
+            startActivity(hi);
+        } else if (lecture.compareTo("kys_animation") == 0) {
+            hi.putExtra("NAME", "kys");
+            startActivity(hi);
+        } else if (lecture.compareTo("ljh_C") == 0) {
+            hi.putExtra("NAME", "ljh");
+            startActivity(hi);
+        } else if (lecture.compareTo("ljh_Cplusplus") == 0) {
+            hi.putExtra("NAME", "ljh");
+            startActivity(hi);
+        } else if (lecture.compareTo("ljh_java") == 0) {
+            hi.putExtra("NAME", "ljh");
+            startActivity(hi);
+        } else if (lecture.compareTo("uhg_trash") == 0) {
+            hi.putExtra("NAME", "uhg");
+            startActivity(hi);
+        } else if (lecture.compareTo("uhg_ai") == 0) {
+            hi.putExtra("NAME", "uhg");
+            startActivity(hi);
+        }
+
     }
-    // Async Task to access the web
 
     //웹서버에 접근해서 데이터들을 json으로 읽어오는 스레드~
     private class JsonReadTask extends AsyncTask<String, Void, String> {
-
         @Override
         protected String doInBackground(String... params) {
+            Log.d("evaluateActivity","doInBackground()");
 
             HttpClient httpclient = new DefaultHttpClient();
             HttpPost httppost = new HttpPost(params[0]); //(params[0]에는 url 값이 들어있습! Post로 서버에 연결.
@@ -109,7 +162,7 @@ public class evaluateActivity extends Activity {
                 String temp = inputStreamToString(inputStream).toString();//스트림을 매개변수 값으로 넣고 원래 json은 문자열이기때문에 문자열로 바꿔서 온다.
 
                 //wow 시발 성공했다!! ㅋㅋㅋ
-                jsonResult = temp.substring( temp.indexOf('{') );
+                jsonResult = temp.substring(temp.indexOf('{'));
                 System.out.println(jsonResult);
 
             } catch (ClientProtocolException e) {
@@ -119,35 +172,44 @@ public class evaluateActivity extends Activity {
             }
             return null;
         }
+
         private StringBuilder inputStreamToString(InputStream is) {
+
+            Log.d("evaluateActivity","inputStreamToString()");
 
             String rLine = "";
             StringBuilder answer = new StringBuilder();
-            BufferedReader rd = new BufferedReader( new InputStreamReader(is) );//해당 스트림으로부터 읽어 와서 버퍼에 저장한다~
+            BufferedReader rd = new BufferedReader(new InputStreamReader(is));//해당 스트림으로부터 읽어 와서 버퍼에 저장한다~
 
 
             try {
 
-                while ( (rLine = rd.readLine()) != null ) {
+                while ((rLine = rd.readLine()) != null) {
 
                     answer.append(rLine);
-                    Log.d("line",rLine );
-                    Log.d("number","1");
+                    Log.d("line", rLine);
+                    Log.d("number", "1");
                 }
             } catch (IOException e) {
                 Toast.makeText(getApplicationContext(),
                         "Error..." + e.toString(), Toast.LENGTH_LONG).show();
             }
-            Log.d("answer",answer.toString() );
+            Log.d("answer", answer.toString());
             return answer;
         }
+
         @Override
         protected void onPostExecute(String result) {
+
+            Log.d("evaluateActivity","onPostExecute()");
             ListDrwaer();
         }
     }// end async task
 
     public void accessWebService() {
+
+        Log.d("evaluateActivity","accessWebService()");
+
         JsonReadTask task = new JsonReadTask();
         // passes values for the urls string array
         task.execute(new String[]{url});
@@ -157,7 +219,9 @@ public class evaluateActivity extends Activity {
     //댓글을 jSon으로 받아와서 뿌려준다.
     public void ListDrwaer() {
 
-        List< Map<String, String> > commentList = new ArrayList< Map<String, String> >();
+        Log.d("evaluateActivity","ListDrwaer()");
+
+        List<Map<String, String>> commentList = new ArrayList<Map<String, String>>();
 
         try {
 
@@ -170,7 +234,7 @@ public class evaluateActivity extends Activity {
                 String commentText = jsonChildNode.optString("comment");
                 String timeText = jsonChildNode.optString("time");
 
-                commentList.add( createComment("nameT","timeT", commentText,timeText ) );
+                commentList.add(createComment("nameT", "timeT", commentText, timeText));
 
 
             }
@@ -180,14 +244,14 @@ public class evaluateActivity extends Activity {
         }
         SimpleAdapter simpleAdapter = new SimpleAdapter(this, commentList,
                 android.R.layout.simple_list_item_2,
-                new String[]{"nameT","timeT"}, new int[]{android.R.id.text1,android.R.id.text2});
+                new String[]{"nameT", "timeT"}, new int[]{android.R.id.text1, android.R.id.text2});
 
         listView.setAdapter(simpleAdapter);
     }
 
     private HashMap<String, String> createComment(String nameT, String timeT, String commentText, String timeText) {
 
-        HashMap<String, String> comment= new HashMap<String, String>();
+        HashMap<String, String> comment = new HashMap<String, String>();
         comment.put(nameT, commentText);
         comment.put(timeT, timeText);
         return comment;
@@ -196,7 +260,11 @@ public class evaluateActivity extends Activity {
 
     //댓글입력을 클릭했을때 웹서버로 데이터를 입력한다
     public void CommentonClick(View view) {
+
+        Log.d("evaluateActivity","CommentonClick()");
+
         String commentData = m_EditText_comment.getText().toString();
+        m_EditText_comment.setText("");
         if (view.getId() == R.id.add) {
 
             int version = android.os.Build.VERSION.SDK_INT;
@@ -206,7 +274,10 @@ public class evaluateActivity extends Activity {
             }
             try {
 
-                URL url = new URL("http://jhy753.dothome.co.kr/dbconfig/insertComment.php?comment=" + commentData + "&lecture=" + lecture);
+                //url주소로 넘길때 한글값이 들어가 있으면 제대로 url주소로 넘어가지가 않을경우 한글데이터를 인코딩한다.!
+                String commentDataEncode = URLEncoder.encode(commentData, "UTF-8");
+
+                URL url = new URL("http://jhy753.dothome.co.kr/dbconfig/insertComment.php?comment=" + commentDataEncode + "&lecture=" + lecture);
                 //여기 주소를 바꿔주면 된다. 데이터를 추가하려면 변수를 추가 해서 이어붙이면 된다. &기호로 이어붙인다. ex) name=les&num=20130610&phone=1111
 
                 URLConnection conn = url.openConnection();
@@ -228,17 +299,19 @@ public class evaluateActivity extends Activity {
     //별점을  등록!
     public void evaluate_Enrollment(View view) {
 
+        Log.d("evaluateActivity","evaluate_Enrollment()");
+
         //String commentData = m_EditText_comment.getText().toString();
         int version = android.os.Build.VERSION.SDK_INT;
         Log.d("sdk version:", version + "");
         if (version > 8) {
             StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitNetwork().build());
         }
-       String rate = Float.toString(ratevalue);
+        String rate = Float.toString(ratevalue);
 
         try {
 
-            URL url = new URL("http://jhy753.dothome.co.kr/insertScoreValue.php?avg="+rate+"&lecture="+lecture);
+            URL url = new URL("http://jhy753.dothome.co.kr/insertScoreValue.php?avg=" + rate + "&lecture=" + lecture);
             //여기 주소를 바꿔주면 된다. 데이터를 추가하려면 변수를 추가 해서 이어붙이면 된다. &기호로 이어붙인다. ex) name=les&num=20130610&phone=1111
             URLConnection conn = url.openConnection();
             //url경로를 열어준다.

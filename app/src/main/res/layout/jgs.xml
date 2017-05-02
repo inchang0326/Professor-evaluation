@@ -6,9 +6,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:src="@drawable/jgs"
-
-        />
+        android:src="@drawable/jgs" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,6 +18,7 @@
             android:layout_height="wrap_content"
             android:text="마이크로프로세서"
             android:textSize="20dp"/>
+
         <RatingBar android:id="@+id/jgs_microprocessor_Average"
             android:paddingTop="15dp"
             android:layout_width="wrap_content"
@@ -27,12 +26,13 @@
             android:numStars="5"
             android:rating="0"
             style="?android:attr/ratingBarStyleSmall"/>
-        <Button
+
+        <Button android:id="@+id/jgs_microprocessor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:text="평판"
-            android:onClick="jgs_microprocessor"/>
+            android:onClick="onClickEvaluationBtn"/>
 
     </LinearLayout>
 
@@ -46,6 +46,7 @@
             android:layout_height="wrap_content"
             android:text="임베디드"
             android:textSize="20dp"/>
+
         <RatingBar android:id="@+id/jgs_embedded_Average"
             android:paddingTop="15dp"
             android:layout_width="wrap_content"
@@ -53,12 +54,13 @@
             android:numStars="5"
             android:rating="0"
             style="?android:attr/ratingBarStyleSmall"/>
-        <Button
+
+        <Button android:id="@+id/jgs_embedded"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:text="평판"
-            android:onClick="jgs_embedded"/>
+            android:onClick="onClickEvaluationBtn"/>
 
     </LinearLayout>
 
@@ -69,7 +71,6 @@
         android:orientation="vertical">
 
         <ImageButton
-            android:id="@+id/jgscall"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
@@ -78,7 +79,6 @@
             android:src="@drawable/ic_contact_phone_black_24dp"/>
 
         <ImageButton
-            android:id="@+id/jgsmail"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
@@ -86,9 +86,5 @@
             android:onClick="onClickMail"
             android:src="@drawable/ic_contact_mail_black_24dp"/>
 
-
     </LinearLayout>
-
-
-
 </LinearLayout>

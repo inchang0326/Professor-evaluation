@@ -6,9 +6,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:src="@drawable/hanyunhee"
-
-        />
+        android:src="@drawable/hyh" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -97,7 +95,6 @@
         android:orientation="vertical">
 
         <ImageButton
-            android:id="@+id/hyhcall"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
@@ -106,7 +103,6 @@
             android:src="@drawable/ic_contact_phone_black_24dp"/>
 
         <ImageButton
-            android:id="@+id/hyhmail"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
@@ -114,8 +110,5 @@
             android:onClick="onClickMail"
             android:src="@drawable/ic_contact_mail_black_24dp"/>
 
-
     </LinearLayout>
-
-
 </LinearLayout>

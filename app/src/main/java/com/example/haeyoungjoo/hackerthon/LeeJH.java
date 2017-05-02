@@ -1,0 +1,17 @@
+package com.example.haeyoungjoo.hackerthon;
+
+/**
+ * Created by Kang in-Chang on 2017-04-22.
+ */
+
+public class LeeJH extends Professor{
+    public LeeJH(String name){
+        super(name);
+    }
+    @Override
+    public String getEmailAddress(){
+        return "mailto:jae@koreatech.ac.kr";
+    }
+    @Override
+    public String getTelephoneNumber(){ return "tel:(+82)0415601184"; }
+}

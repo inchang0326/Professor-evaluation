@@ -6,8 +6,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:src="@drawable/kimsangjin"
-        />
+        android:src="@drawable/ksj" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -47,6 +46,7 @@
             android:layout_height="wrap_content"
             android:text="객체지향개발론"
             android:textSize="20dp"/>
+
         <RatingBar android:id="@+id/ksj_object_Average"
             android:paddingTop="15dp"
             android:layout_width="wrap_content"
@@ -54,12 +54,13 @@
             android:numStars="5"
             android:rating="0"
             style="?android:attr/ratingBarStyleSmall"/>
-        <Button
+
+        <Button android:id="@+id/ksj_object"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:text="평판"
-            android:onClick="ksj_object"/>
+            android:onClick="onClickEvaluationBtn"/>
 
     </LinearLayout>
 
@@ -73,6 +74,7 @@
             android:layout_height="wrap_content"
             android:text="정보보호개론"
             android:textSize="20dp"/>
+
         <RatingBar android:id="@+id/ksj_protect_Average"
             android:paddingTop="15dp"
             android:layout_width="wrap_content"
@@ -80,12 +82,13 @@
             android:numStars="5"
             android:rating="0"
             style="?android:attr/ratingBarStyleSmall"/>
-        <Button
+
+        <Button android:id="@+id/ksj_protect"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="평판"
             android:textSize="20dp"
-            android:onClick="ksj_protect"/>
+            android:onClick="onClickEvaluationBtn"/>
 
     </LinearLayout>
 
@@ -93,10 +96,9 @@
         android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <ImageButton
-            android:id="@+id/ksjcall"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
@@ -105,7 +107,6 @@
             android:src="@drawable/ic_contact_phone_black_24dp"/>
 
         <ImageButton
-            android:id="@+id/ksjmail"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
@@ -113,13 +114,5 @@
             android:onClick="onClickMail"
             android:src="@drawable/ic_contact_mail_black_24dp"/>
 
-
     </LinearLayout>
-
-
-
-
-
-
-
 </LinearLayout>

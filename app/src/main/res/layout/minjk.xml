@@ -6,8 +6,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:src="@drawable/minjk"
-        />
+        android:src="@drawable/mjg" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -28,12 +27,12 @@
             android:rating="0"
             style="?android:attr/ratingBarStyleSmall"/>
 
-        <Button
+        <Button android:id="@+id/mjk_database"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:text="평판"
-            android:onClick="mjk_database"/>
+            android:onClick="onClickEvaluationBtn"/>
 
     </LinearLayout>
 
@@ -47,6 +46,7 @@
             android:layout_height="wrap_content"
             android:text="소프트웨어공학"
             android:textSize="20dp"/>
+
         <RatingBar android:id="@+id/mjk_software_Average"
             android:paddingTop="15dp"
             android:layout_width="wrap_content"
@@ -54,24 +54,23 @@
             android:numStars="5"
             android:rating="0"
             style="?android:attr/ratingBarStyleSmall"/>
-        <Button
+
+        <Button android:id="@+id/mjk_software"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:text="평판"
-            android:onClick="mjk_software"/>
+            android:onClick="onClickEvaluationBtn"/>
 
     </LinearLayout>
-
 
     <LinearLayout
         android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <ImageButton
-            android:id="@+id/mjkcall"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
@@ -80,7 +79,6 @@
             android:src="@drawable/ic_contact_phone_black_24dp"/>
 
         <ImageButton
-            android:id="@+id/mjkmail"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
@@ -88,13 +86,5 @@
             android:onClick="onClickMail"
             android:src="@drawable/ic_contact_mail_black_24dp"/>
 
-
     </LinearLayout>
-
-
-
-
-
-
-
 </LinearLayout>

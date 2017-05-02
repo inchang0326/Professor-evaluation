@@ -6,9 +6,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:src="@drawable/mohamad"
-
-        />
+        android:src="@drawable/mohamed" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,12 +27,12 @@
             android:rating="0"
             style="?android:attr/ratingBarStyleSmall"/>
 
-        <Button
+        <Button android:id="@+id/mhmd_java"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:text="평판"
-            android:onClick="mhmd_java"/>
+            android:onClick="onClickEvaluationBtn"/>
 
     </LinearLayout>
 
@@ -48,6 +46,7 @@
             android:layout_height="wrap_content"
             android:text="자료구조"
             android:textSize="20dp"/>
+
         <RatingBar android:id="@+id/mhmd_datastructure_Average"
             android:paddingTop="15dp"
             android:layout_width="wrap_content"
@@ -55,12 +54,13 @@
             android:numStars="5"
             android:rating="0"
             style="?android:attr/ratingBarStyleSmall"/>
-        <Button
+
+        <Button android:id="@+id/mhmd_datastructure"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:text="평판"
-            android:onClick="mhmd_datastructure"/>
+            android:onClick="onClickEvaluationBtn"/>
 
     </LinearLayout>
 
@@ -74,6 +74,7 @@
             android:layout_height="wrap_content"
             android:text="알고리즘"
             android:textSize="20dp"/>
+
         <RatingBar android:id="@+id/mhmd_algo_Average"
             android:paddingTop="15dp"
             android:layout_width="wrap_content"
@@ -81,12 +82,13 @@
             android:numStars="5"
             android:rating="0"
             style="?android:attr/ratingBarStyleSmall"/>
-        <Button
+
+        <Button android:id="@+id/mhmd_algo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="평판"
             android:textSize="20dp"
-            android:onClick="mhmd_algo"/>
+            android:onClick="onClickEvaluationBtn"/>
 
     </LinearLayout>
 
@@ -100,6 +102,7 @@
             android:layout_height="wrap_content"
             android:text="데이터베이스프로그래밍"
             android:textSize="20dp"/>
+
         <RatingBar android:id="@+id/mhmd_databasepro_Average"
             android:paddingTop="15dp"
             android:layout_width="wrap_content"
@@ -107,12 +110,13 @@
             android:numStars="5"
             android:rating="0"
             style="?android:attr/ratingBarStyleSmall"/>
-        <Button
+
+        <Button android:id="@+id/mhmd_databasepro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="평판"
             android:textSize="20dp"
-            android:onClick="mhmd_databasepro"/>
+            android:onClick="onClickEvaluationBtn"/>
 
     </LinearLayout>
 
@@ -120,10 +124,9 @@
         android:layout_marginTop="30dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <ImageButton
-            android:id="@+id/mhmdcall"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
@@ -132,7 +135,6 @@
             android:src="@drawable/ic_contact_phone_black_24dp"/>
 
         <ImageButton
-            android:id="@+id/mhmdmail"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
@@ -140,10 +142,5 @@
             android:onClick="onClickMail"
             android:src="@drawable/ic_contact_mail_black_24dp"/>
 
-
     </LinearLayout>
-
-
-
-
 </LinearLayout>

@@ -6,8 +6,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:src="@drawable/uhg"
-        />
+        android:src="@drawable/yhg" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,6 +18,7 @@
             android:layout_height="wrap_content"
             android:text="컴퓨터시스템기초설계"
             android:textSize="20dp"/>
+
         <RatingBar android:id="@+id/uhg_trash_Average"
             android:paddingTop="15dp"
             android:layout_width="wrap_content"
@@ -26,12 +26,13 @@
             android:numStars="5"
             android:rating="0"
             style="?android:attr/ratingBarStyleSmall"/>
-        <Button
+
+        <Button android:id="@+id/uhg_trash"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:text="평판"
-            android:onClick="uhg_trash"/>
+            android:onClick="onClickEvaluationBtn"/>
 
     </LinearLayout>
 
@@ -45,6 +46,7 @@
             android:layout_height="wrap_content"
             android:text="인공지능"
             android:textSize="20dp"/>
+
         <RatingBar android:id="@+id/uhg_ai_Average"
             android:paddingTop="15dp"
             android:layout_width="wrap_content"
@@ -52,13 +54,13 @@
             android:numStars="5"
             android:rating="0"
             style="?android:attr/ratingBarStyleSmall"/>
-        <Button
+
+        <Button android:id="@+id/uhg_ai"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:text="평판"
-            android:onClick="uhg_ai"/>
-
+            android:onClick="onClickEvaluationBtn"/>
 
     </LinearLayout>
 
@@ -69,7 +71,6 @@
         android:orientation="vertical">
 
         <ImageButton
-            android:id="@+id/uhgcall"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
@@ -78,7 +79,6 @@
             android:src="@drawable/ic_contact_phone_black_24dp"/>
 
         <ImageButton
-            android:id="@+id/uhgmail"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
@@ -87,7 +87,4 @@
             android:src="@drawable/ic_contact_mail_black_24dp"/>
 
     </LinearLayout>
-
-
-
 </LinearLayout>

@@ -6,9 +6,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:src="@drawable/cyg"
-
-        />
+        android:src="@drawable/cyg" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,12 +27,12 @@
             android:rating="0"
             style="?android:attr/ratingBarStyleSmall"/>
 
-        <Button
+        <Button android:id="@+id/cyg_cplusplus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:text="평판"
-            android:onClick="cyg_cplusplus"/>
+            android:onClick="onClickEvaluationBtn"/>
 
     </LinearLayout>
 
@@ -48,6 +46,7 @@
             android:layout_height="wrap_content"
             android:text="자료구조"
             android:textSize="20dp"/>
+
         <RatingBar android:id="@+id/cyg_datastructure_Average"
             android:paddingTop="15dp"
             android:layout_width="wrap_content"
@@ -55,12 +54,13 @@
             android:numStars="5"
             android:rating="0"
             style="?android:attr/ratingBarStyleSmall"/>
-        <Button
+
+        <Button android:id="@+id/cyg_datastructure"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:text="평판"
-            android:onClick="cyg_datastructure"/>
+            android:onClick="onClickEvaluationBtn"/>
 
     </LinearLayout>
 
@@ -74,6 +74,7 @@
             android:layout_height="wrap_content"
             android:text="컴퓨터 그래픽스"
             android:textSize="20dp"/>
+
         <RatingBar android:id="@+id/cyg_graphic_Average"
             android:paddingTop="15dp"
             android:layout_width="wrap_content"
@@ -81,12 +82,13 @@
             android:numStars="5"
             android:rating="0"
             style="?android:attr/ratingBarStyleSmall"/>
-        <Button
+
+        <Button android:id="@+id/icyg_graphic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="평판"
             android:textSize="20dp"
-            android:onClick="cyg_graphic"/>
+            android:onClick="onClickEvaluationBtn"/>
 
     </LinearLayout>
 
@@ -97,7 +99,6 @@
         android:orientation="vertical">
 
         <ImageButton
-            android:id="@+id/cygcall"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
@@ -106,7 +107,6 @@
             android:src="@drawable/ic_contact_phone_black_24dp"/>
 
         <ImageButton
-            android:id="@+id/cygmail"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center"
@@ -114,13 +114,5 @@
             android:onClick="onClickMail"
             android:src="@drawable/ic_contact_mail_black_24dp"/>
 
-
     </LinearLayout>
-
-
-
-
-
-
-
 </LinearLayout>
